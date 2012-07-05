@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "xlef.h"
 #include <comdef.h>
 
@@ -8,7 +8,7 @@ VOptional((long)DISP_E_PARAMNOTFOUND,VT_ERROR), VFALSE((short)FALSE), VTRUE((sho
 	ZeroMemory(buf,sizeof(buf));
 	ZeroMemory(buf1,sizeof(buf1));
 	ZeroMemory(buf2,sizeof(buf2));
-	//Step 1.¥sExcelÀ³¥Îµ{¦¡
+	//Step 1.å«Excelæ‡‰ç”¨ç¨‹å¼
 	if(!objApp.CreateDispatch("Excel.Application",&e))
 	{
 		CString str;
@@ -19,7 +19,7 @@ VOptional((long)DISP_E_PARAMNOTFOUND,VT_ERROR), VFALSE((short)FALSE), VTRUE((sho
 
 xlsFile::~xlsFile()
 {
-	//objApp.SetUserControl(TRUE);  //²¾¦Üvisualable
+	//objApp.SetUserControl(TRUE);  //ç§»è‡³visualable
 	range.ReleaseDispatch();
 	//chartobject.ReleaseDispatch();
 	//chartobjects.ReleaseDispatch();
@@ -34,7 +34,7 @@ xlsFile::~xlsFile()
 xlsFile& xlsFile::New()
 {
 	objBooks = objApp.GetWorkbooks();
-    objBook = objBooks.Add(VOptional);	//¶}·sÀÉ®×
+    objBook = objBooks.Add(VOptional);	//é–‹æ–°æª”æ¡ˆ
 	objSheets = objBook.GetWorksheets();
 	return *this;
 }
@@ -42,7 +42,7 @@ xlsFile& xlsFile::New()
 xlsFile& xlsFile::Open(const char* path)
 {
 	objBooks = objApp.GetWorkbooks();
-    objBook.AttachDispatch(objBooks.Add(_variant_t(path))); //¶}±Ò¤@­Ó¤w¦s¦bªºÀÉ®×
+    objBook.AttachDispatch(objBooks.Add(_variant_t(path))); //é–‹å•Ÿä¸€å€‹å·²å­˜åœ¨çš„æª”æ¡ˆ
 	objBook.Activate();
 	objSheets = objBook.GetWorksheets();
 	return *this;
@@ -72,7 +72,7 @@ void xlsFile::Quit(CString FileName)
 {
 	ZeroMemory(buf,sizeof(buf));
 	sprintf(buf,"%s",FileName);
-	objBook.Close(VFalse,COleVariant(buf), VOptional); //Ãö³¬¤£¸õ¥Xµøµ¡°İ°İÃD
+	objBook.Close(VFalse,COleVariant(buf), VOptional); //é—œé–‰ä¸è·³å‡ºè¦–çª—å•å•é¡Œ
 	objBooks.Close();
 	objApp.Quit();
 }
@@ -87,42 +87,42 @@ void xlsFile::Quit()
 //SetVisible()
 void xlsFile::SetVisible(bool a)
 {
-	objApp.SetVisible(a);    //Åã¥ÜExcelÀÉ
-	objApp.SetUserControl(a);//¨Ï¥ÎªÌ±±¨î«á¡A´N¤£¥i¥H¦Û°ÊÃö³¬
+	objApp.SetVisible(a);    //é¡¯ç¤ºExcelæª”
+	objApp.SetUserControl(a);//ä½¿ç”¨è€…æ§åˆ¶å¾Œï¼Œå°±ä¸å¯ä»¥è‡ªå‹•é—œé–‰
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Sheet¾Ş§@
+//Sheetæ“ä½œ
 
 //-------------------------
-////¨ú±o Sheet ­Ó¼Æ
+////å–å¾— Sheet å€‹æ•¸
 long xlsFile::SheetTotal()
 {
 	return objSheets.GetCount();//edisonx
 }
 //-------------------------
-//¥ÑSheetNumber «ü©wSheetName
+//ç”±SheetNumber æŒ‡å®šSheetName
 void xlsFile::SetSheetName(short SheetNumber, const char* SheetName)
 {
 	objSheet = objSheets.GetItem(COleVariant(SheetNumber));
-    objSheet.SetName(SheetName);//³]©wsheet¦WºÙ
+    objSheet.SetName(SheetName);//è¨­å®šsheetåç¨±
 }
 //-------------------------
-//¥ÑSheetNumber ¨ú±oSheetName
+//ç”±SheetNumber å–å¾—SheetName
 CString xlsFile::GetSheetName(short SheetNumber)
 {
 	objSheet = objSheets.GetItem(COleVariant(SheetNumber));
 	return objSheet.GetName();//edisonx
 }
 //-------------------------
-//¿ï¾ÜSheet
-//¥ÑSheetName
+//é¸æ“‡Sheet
+//ç”±SheetName
 xlsFile& xlsFile::SelectSheet(const char* SheetName)
 {
 	objSheet = objSheets.GetItem(_variant_t(SheetName));
 	objSheet.Activate();//edisonx
 	return *this;
 }
-//¥ÑSheetNumber 
+//ç”±SheetNumber 
 xlsFile& xlsFile::SelectSheet(short SheetNumber)
 {
 	objSheet = objSheets.GetItem(COleVariant(SheetNumber));
@@ -130,50 +130,50 @@ xlsFile& xlsFile::SelectSheet(short SheetNumber)
 	return *this;
 }
 //-------------------------
-//½Æ»sSheetName «ü©w´¡¤JSheetªº¦ì¸m¡A¨Ã«ü©w·sSheet¦WºÙ
+//è¤‡è£½SheetName æŒ‡å®šæ’å…¥Sheetçš„ä½ç½®ï¼Œä¸¦æŒ‡å®šæ–°Sheetåç¨±
 void xlsFile::CopySheet(const char* SheetName)
 {
 	objSheet.AttachDispatch(objSheets.GetItem(_variant_t(SheetName)),true);
 	objSheet.Copy(vtMissing,_variant_t(objSheet));
 }
-//½Æ»sSheetNumber «ü©w´¡¤JSheetªº¦ì¸m¡A¨Ã«ü©w¦WºÙ
+//è¤‡è£½SheetNumber æŒ‡å®šæ’å…¥Sheetçš„ä½ç½®ï¼Œä¸¦æŒ‡å®šåç¨±
 void xlsFile::CopySheet(short SheetNumber)
 {
 	objSheet.AttachDispatch(objSheets.GetItem(COleVariant(SheetNumber)));
 	objSheet.Copy(vtMissing,_variant_t(objSheet));
 }
 //-------------------------
-//§R°£Sheet
-//¿ïSheetName 
+//åˆªé™¤Sheet
+//é¸SheetName 
 void xlsFile::DelSheet(const char* SheetName)
 {	
 	objSheet = objSheets.GetItem(_variant_t(SheetName));
 	objSheet.Delete();//edisonx
 }
-//¿ïSheetNumber
+//é¸SheetNumber
 void xlsFile::DelSheet(short SheetNumber)
 {
 	objSheet = objSheets.GetItem(COleVariant(SheetNumber));
 	objSheet.Delete();//edisonx
 }
 ///////////////////////////////////////////////////////////////////////////////////////////
-//Cell¾Ş§@
-//Cell­p¼Æ­pºâ
-// ¨ú±o°_©l¦C
+//Cellæ“ä½œ
+//Cellè¨ˆæ•¸è¨ˆç®—
+// å–å¾—èµ·å§‹åˆ—
 long xlsFile::GetHorztlStartCell()
 {
 	Range usedrange;
 	usedrange.AttachDispatch(objSheet.GetUsedRange());
 	return usedrange.GetColumn();
 }
-// ¨ú±o°_©l¦æ
+// å–å¾—èµ·å§‹è¡Œ
 long xlsFile::GetVrticlStartCell()
 {	
 	Range usedrange;
 	usedrange.AttachDispatch(objSheet.GetUsedRange());
 	return usedrange.GetRow();
 }
-// ¨ú±oÁ`¦C¼Æ
+// å–å¾—ç¸½åˆ—æ•¸
 long xlsFile::GetHorztlTotalCell()
 {
 	Range usedrange;
@@ -181,7 +181,7 @@ long xlsFile::GetHorztlTotalCell()
 	range.AttachDispatch(usedrange.GetColumns());
 	return range.GetCount();
 }
-// ¨ú±oÁ`¦æ¼Æ
+// å–å¾—ç¸½è¡Œæ•¸
 long xlsFile::GetVrticlTotalCell()
 {
 	Range usedrange;
@@ -190,10 +190,10 @@ long xlsFile::GetVrticlTotalCell()
 	return range.GetCount();
 }
 //-------------------------
-//Cell®æ¦¡³]©w
+//Cellæ ¼å¼è¨­å®š
 //-------------------------
-//¿ï®æ¤l
-//¿ï¤@®æ
+//é¸æ ¼å­
+//é¸ä¸€æ ¼
 xlsFile& xlsFile::SelectCell(const char* x)
 {
 	range=objSheet.GetRange(COleVariant(x),COleVariant(x));
@@ -207,7 +207,7 @@ xlsFile& xlsFile::SelectCell(const char* x, int y)
 	range=objSheet.GetRange(COleVariant(buf),COleVariant(buf));
 	return *this;
 }
-//¤p©óZ
+//å°æ–¼Z
 xlsFile& xlsFile::SelectCell(char x, int y)
 {
 	ZeroMemory(buf,sizeof(buf));
@@ -215,7 +215,7 @@ xlsFile& xlsFile::SelectCell(char x, int y)
 	range=objSheet.GetRange(COleVariant(buf),COleVariant(buf));
 	return *this;
 }
-//¤j©óZ¡A¶}©l¿ïAA
+//å¤§æ–¼Zï¼Œé–‹å§‹é¸AA
 xlsFile& xlsFile::SelectCell(char x1,char x2,int y)
 {
 	ZeroMemory(buf,sizeof(buf));
@@ -224,8 +224,8 @@ xlsFile& xlsFile::SelectCell(char x1,char x2,int y)
 	return *this;
 }
 //-------------------------
-//¿ï®æ¤l
-//¿ï½d³ò
+//é¸æ ¼å­
+//é¸ç¯„åœ
 xlsFile& xlsFile::SelectCell(const char* x1,const char* x2)
 {
 	range=objSheet.GetRange(COleVariant(x1),COleVariant(x2));
@@ -240,7 +240,7 @@ xlsFile& xlsFile::SelectCell(const char* x1, int y1, const char* x2, int y2)
 	range=objSheet.GetRange(COleVariant(buf1),COleVariant(buf2));
 	return *this;
 }
-//¤p©óZ
+//å°æ–¼Z
 xlsFile& xlsFile::SelectCell(char x1, int y1, char x2, int y2)
 {
 	ZeroMemory(buf1,sizeof(buf1));
@@ -250,7 +250,7 @@ xlsFile& xlsFile::SelectCell(char x1, int y1, char x2, int y2)
 	range=objSheet.GetRange(COleVariant(buf1),COleVariant(buf2));
 	return *this;
 }
-//¤j©óZ¡A¶}©l¿ïAA
+//å¤§æ–¼Zï¼Œé–‹å§‹é¸AA
 xlsFile& xlsFile::SelectCell(char xA1, char xB1, int y1, char xA2, char xB2, int y2)
 {
 	ZeroMemory(buf1,sizeof(buf1));
@@ -263,44 +263,44 @@ xlsFile& xlsFile::SelectCell(char xA1, char xB1, int y1, char xA2, char xB2, int
 }
 //-------------------------
 //-------------------------
-//²M°£Àx¦s®æ
+//æ¸…é™¤å„²å­˜æ ¼
 void xlsFile::ClearCell()
 {
-	//¥ı¿ï¨ú¤@­Ó½d³òªºÀx¦s®æ
+	//å…ˆé¸å–ä¸€å€‹ç¯„åœçš„å„²å­˜æ ¼
 	range.Clear();//edisonx
 }
-//¦X¨ÖÀx¦s®æ
+//åˆä½µå„²å­˜æ ¼
 xlsFile& xlsFile::SetMergeCells(short vMerge, bool isCenterAcross)
 {
-	//¥ı¿ï¨ú¤@­Ó½d³òªºÀx¦s®æ
+	//å…ˆé¸å–ä¸€å€‹ç¯„åœçš„å„²å­˜æ ¼
     range.SetMergeCells(_variant_t(vMerge));
 	if(isCenterAcross) SetHorztlAlgmet(HA_CENTERACROSS);
 	return *this;
 }
 //-------------------------
 //-------------------------
-//¹ï»ô¤è¦¡
-//¤ô¥­¹ï»ô
+//å°é½Šæ–¹å¼
+//æ°´å¹³å°é½Š
 xlsFile& xlsFile::SetHorztlAlgmet(short position)
 {
 	range.SetHorizontalAlignment(COleVariant(position));
 	return *this;
 }
 
-//««ª½¹ï»ô
+//å‚ç›´å°é½Š
 xlsFile& xlsFile::SetVrticlAlgmet(short position)
 {
 	range.SetVerticalAlignment(COleVariant(position));
 	return *this;
 }
 
-//¹ï»ô¤è¦¡ªº¤è¦V´X«×¡]+90~-90¡^
+//å°é½Šæ–¹å¼çš„æ–¹å‘å¹¾åº¦ï¼ˆ+90~-90ï¼‰
 xlsFile& xlsFile::SetTextAngle(short Angle)
 {
 	range.SetOrientation(COleVariant(Angle)); 
 	return *this;
 }
-//³]©w¤å¦r¦Û°Ê´«¦æ
+//è¨­å®šæ–‡å­—è‡ªå‹•æ›è¡Œ
 xlsFile& xlsFile::AutoNewLine(bool NewLine)
 {
 	if(NewLine)		range.SetWrapText(VTRUE);
@@ -309,7 +309,7 @@ xlsFile& xlsFile::AutoNewLine(bool NewLine)
 }
 //-------------------------
 //-------------------------
-//³]©w®Ø½u¡B®Ø½uÃC¦â
+//è¨­å®šæ¡†ç·šã€æ¡†ç·šé¡è‰²
 xlsFile& xlsFile::SetCellBorder(long BoarderStyle, int BoarderWeight, long BoarderColor)
 {
 	range.BorderAround(_variant_t(BoarderStyle), BoarderWeight, BoarderColor,_variant_t((long)RGB(0,0,0)));
@@ -317,26 +317,26 @@ xlsFile& xlsFile::SetCellBorder(long BoarderStyle, int BoarderWeight, long Board
 }
 //-------------------------
 //-------------------------
-//³]©wÄæ¼e¦C°ª
-//¦Û°Ê½Õ¾ã¦C°ª
+//è¨­å®šæ¬„å¯¬åˆ—é«˜
+//è‡ªå‹•èª¿æ•´åˆ—é«˜
 void xlsFile::AutoFitWidth()
 {
-	col = range.GetEntireColumn();	//¿ï¨ú¬Y­Ó½d³òªº¤@¾ã±Æ
-	col.AutoFit();					//¦Û°Ê½Õ¾ã¤@¾ã±ÆªºÄæ¼e
+	col = range.GetEntireColumn();	//é¸å–æŸå€‹ç¯„åœçš„ä¸€æ•´æ’
+	col.AutoFit();					//è‡ªå‹•èª¿æ•´ä¸€æ•´æ’çš„æ¬„å¯¬
 }
-//¦Û°Ê½Õ¾ãÄæ¼e
+//è‡ªå‹•èª¿æ•´æ¬„å¯¬
 void xlsFile::AutoFitHight()
 {
-	row = range.GetEntireRow();		//¿ï¨ú¬Y­Ó½d³òªº¤@¾ã±Æ
-	row.AutoFit();					//¦Û°Ê½Õ¾ã¤@¾ã±Æªº¦C°ª
+	row = range.GetEntireRow();		//é¸å–æŸå€‹ç¯„åœçš„ä¸€æ•´æ’
+	row.AutoFit();					//è‡ªå‹•èª¿æ•´ä¸€æ•´æ’çš„åˆ—é«˜
 }
-//³]©w¦C°ª
+//è¨­å®šåˆ—é«˜
 xlsFile& xlsFile::SetCellHeight(float height)
 {
 	range.SetRowHeight(_variant_t(height));
 	return *this;
 }
-//³]©wÄæ¼e
+//è¨­å®šæ¬„å¯¬
 xlsFile& xlsFile::SetCellWidth(float height)
 {
 	range.SetColumnWidth(_variant_t(height));
@@ -344,23 +344,23 @@ xlsFile& xlsFile::SetCellWidth(float height)
 }
 //-------------------------
 //-------------------------
-//³]©w¦r«¬
+//è¨­å®šå­—å‹
 xlsFile& xlsFile::SetFont(const char* fontType)
 {
 	font = range.GetFont();
-    font.SetName(_variant_t(fontType));//­ì¥»¬OÁú¤å¦r«¬
+    font.SetName(_variant_t(fontType));//åŸæœ¬æ˜¯éŸ“æ–‡å­—å‹
 	return *this;
 }
-//²ÊÅé
+//ç²—é«”
 xlsFile& xlsFile::SetFontBold(bool isBold)
 {
 	font = range.GetFont();
 	if (isBold)		font.SetBold(VTRUE);
 	else			font.SetBold(VFALSE);
-	//font.SetBold(_variant_t(isBold)); //²ÊÅé
+	//font.SetBold(_variant_t(isBold)); //ç²—é«”
 	return *this;
 }
-//§R°£½u
+//åˆªé™¤ç·š
 xlsFile& xlsFile::SetFontStrkthrgh(bool isStrike)
 {
 	font = range.GetFont();
@@ -369,36 +369,36 @@ xlsFile& xlsFile::SetFontStrkthrgh(bool isStrike)
 	//font.SetStrikethrough(_variant_t((short)STRIKE));
 	return *this;
 }
-//¦r«¬¤j¤p
+//å­—å‹å¤§å°
 xlsFile& xlsFile::SetFontSize(short fontSize)
 {
 	font = range.GetFont();
-    font.SetSize(_variant_t(fontSize));//¦r«¬¤j¤ppt
+    font.SetSize(_variant_t(fontSize));//å­—å‹å¤§å°pt
 	return *this;
 }
-//¦r«¬ÃC¦â
+//å­—å‹é¡è‰²
 xlsFile& xlsFile::SetFontColor(short colorIndex)
 {
 	font = range.GetFont();
-	font.SetColorIndex(_variant_t(colorIndex)); //¦r¦â(¹w³]¶Â¦â)
+	font.SetColorIndex(_variant_t(colorIndex)); //å­—è‰²(é è¨­é»‘è‰²)
 	return *this;
 }
 //-------------------------
 //-------------------------
-//³]©w©³¦â
+//è¨­å®šåº•è‰²
 xlsFile& xlsFile::SetCellColor(short colorIndex)
 {
-	cell = range.GetInterior();                   //¨ú±o¿ï¨ú½d³ò¡A³]©wÀx¦s®æªº°O¾ĞÅé¦ì§}
-    cell.SetColorIndex(_variant_t(colorIndex));   //³]©w©³¦â¡]¬dªí¡^
+	cell = range.GetInterior();                   //å–å¾—é¸å–ç¯„åœï¼Œè¨­å®šå„²å­˜æ ¼çš„è¨˜æ†¶é«”ä½å€
+    cell.SetColorIndex(_variant_t(colorIndex));   //è¨­å®šåº•è‰²ï¼ˆæŸ¥è¡¨ï¼‰
 	//cell.SetColor(_variant_t(colorIndex));
 	return *this;
 }
-//¿ï¾ÜÃC¦â¡]¾A¦X¦r¦â©M©³¦â¡^¨Ìexcel¤¶­±ªº®y¼Ğ¿ï¾ÜÃC¦â
+//é¸æ“‡é¡è‰²ï¼ˆé©åˆå­—è‰²å’Œåº•è‰²ï¼‰ä¾excelä»‹é¢çš„åº§æ¨™é¸æ“‡é¡è‰²
 short xlsFile::SelectColor(short x, short y)
 {
-//Microsoft Excel ªºÃC¦â±Æ§Ç¬O¨Ì
-//¬õ¡B¾í¡B¶À¡Bºñ¡BÂÅ¡BÀQ¡Bµµ¡B¦Ç¡]y¡^
-//¥Ñ²`¨ì²L¡]x¡^
+//Microsoft Excel çš„é¡è‰²æ’åºæ˜¯ä¾
+//ç´…ã€æ©™ã€é»ƒã€ç¶ ã€è—ã€é›ã€ç´«ã€ç°ï¼ˆyï¼‰
+//ç”±æ·±åˆ°æ·ºï¼ˆxï¼‰
 	switch(x)
 	{
 	case 1:
@@ -482,47 +482,47 @@ short xlsFile::SelectColor(short x, short y)
 		else if(y == 7) return 32;
 		break;
 	}
-	return 2;//¹w³]¥Õ¦â
+	return 2;//é è¨­ç™½è‰²
 }
 short xlsFile::SelectColor(const char ColorChar)
 {
 	switch(ColorChar)
 	{
-	//¶Â¦â
+	//é»‘è‰²
 	case 'D':
 	case 'd':
 		return 1;
 		break;
-	//¥Õ¦â
+	//ç™½è‰²
 	case 'W':
 	case 'w':
 		return 2;
 		break;
-	//¬õ¦â
+	//ç´…è‰²
 	case 'R':
 	case 'r':
 		return 3;
 		break;
-	//ºñ¦â
+	//ç¶ è‰²
 	case 'G':
 	case 'g':
 		return 4;
 		break;
-	//ÂÅ¦â
+	//è—è‰²
 	case 'B':
 	case 'b':
 		return 5;
 		break;
-	//¶À¦â
+	//é»ƒè‰²
 	case 'Y':
 	case 'y':
 		return 6;
 		break;	}
-	return 2;//¹w³]¥Õ¦â
+	return 2;//é è¨­ç™½è‰²
 }
 ///////////////////////////////////////////////////////////////////////////////////////////
-//Cell¾Ş§@
-//Cell¶ñ­È
+//Cellæ“ä½œ
+//Cellå¡«å€¼
 //-------------------------
 //-------------------------
 //SetCell()
@@ -608,8 +608,8 @@ double xlsFile::GetCell2Double()
 	return vResult.dblVal;					//edisonx 
 }
 ///////////////////////////////////////////////////////////////////////////////////////////
-//ºtºâªk¾Ş§@
-//±Æ§Ç
+//æ¼”ç®—æ³•æ“ä½œ
+//æ’åº
 void xlsFile::Sort(CString IndexCell1, long DeCrement1,
 				   CString IndexCell2, long DeCrement2,
 				   CString IndexCell3, long DeCrement3)
@@ -621,9 +621,9 @@ void xlsFile::Sort(CString IndexCell1, long DeCrement1,
 
 	if(IndexCell2.IsEmpty())
 	{
-		range.Sort( key1, DeCrement1, VOptional, VOptional, 1, VOptional, 1, 2,//¤@¯ë¿ï¶µ
-					VOptional, _variant_t((short)TRUE),//¶i¶¥ 
-					1, 1, 1, 1, 1);//¥¼ª¾¿ï¶µ//edisonx
+		range.Sort( key1, DeCrement1, VOptional, VOptional, 1, VOptional, 1, 2,//ä¸€èˆ¬é¸é …
+					VOptional, _variant_t((short)TRUE),//é€²éš 
+					1, 1, 1, 1, 1);//æœªçŸ¥é¸é …//edisonx
 	}
 	else
 	{
@@ -633,38 +633,38 @@ void xlsFile::Sort(CString IndexCell1, long DeCrement1,
 		if(IndexCell3.IsEmpty())
 		{
 			range.Sort( key1, DeCrement1, key2,	VOptional, DeCrement2, VOptional, 1, 2,
-						VOptional, _variant_t((short)TRUE),//¶i¶¥ 
-						1, 1, 1, 1, 1);//¥¼ª¾¿ï¶µ//edisonx
+						VOptional, _variant_t((short)TRUE),//é€²éš 
+						1, 1, 1, 1, 1);//æœªçŸ¥é¸é …//edisonx
 		}
 		else
 		{
 			V_VT(&key3) = VT_DISPATCH;
 			V_DISPATCH(&key3)=objSheet.GetRange(COleVariant(IndexCell3),COleVariant(IndexCell3));
 			
-			range.Sort(	key1, DeCrement1, key2, VOptional, DeCrement2, key3, DeCrement3, 2,//¤@¯ë¿ï¶µ
-						VOptional, _variant_t((short)TRUE),//¶i¶¥ 
-						1, 1, 1, 1, 1);//¥¼ª¾¿ï¶µ//edisonx
+			range.Sort(	key1, DeCrement1, key2, VOptional, DeCrement2, key3, DeCrement3, 2,//ä¸€èˆ¬é¸é …
+						VOptional, _variant_t((short)TRUE),//é€²éš 
+						1, 1, 1, 1, 1);//æœªçŸ¥é¸é …//edisonx
 		}
 	}
 }
 ///////////////////////////////////////////////////////////////////////////////////////////
-//¹Ïªí¾Ş§@
-//´¡¤J¹Ïªí¡]¤@±øÀscode¡^
+//åœ–è¡¨æ“ä½œ
+//æ’å…¥åœ–è¡¨ï¼ˆä¸€æ¢é¾codeï¼‰
 /*
 void xlsFile::DrawChart(CString DataRangeStart, CString DataRangeEnd, 
 					   long ChartType, short PlotBy, 
 					   short StartFrom, CString TitleString, 
 					   UINT ChartStartX, UINT ChartStartY, UINT width, UINT height
-					   ) // µeªí®æ
+					   ) // ç•«è¡¨æ ¼
 {	
-	//¦bSheet·s¼W¹Ïªí
+	//åœ¨Sheetæ–°å¢åœ–è¡¨
 	lpDisp = objSheet.ChartObjects(VOptional);
 	chartobjects.AttachDispatch(lpDisp);
 	
-	//¹Ïªí²Å¦XÀx¦s®æ½d³òªº¤j¤p
+	//åœ–è¡¨ç¬¦åˆå„²å­˜æ ¼ç¯„åœçš„å¤§å°
 	chartobject = chartobjects.Add( (float)range.GetLeft().dblVal,  (float)range.GetTop().dblVal, 
 									(float)range.GetWidth().dblVal, (float)range.GetHeight().dblVal);
-	//¸ê®Æ¨Ó·½¡]¤@µ§¡^
+	//è³‡æ–™ä¾†æºï¼ˆä¸€ç­†ï¼‰
 	xlsChart.AttachDispatch(chartobject.GetChart());
 	lpDisp = objSheet.GetRange(COleVariant(DataRangeStart), COleVariant(DataRangeEnd));
 	range.AttachDispatch(lpDisp);
@@ -673,13 +673,13 @@ void xlsFile::DrawChart(CString DataRangeStart, CString DataRangeEnd,
 	var.pdispVal = lpDisp;
 
 	xlsChart.ChartWizard(var,					// const VARIANT& Source.
-		COleVariant((short)11),					// const VARIANT& fix please, Gallery: 3d Column. 1 or 11 ¬O§_Âà°Ê3D¡]3DÃş¾A¥Î, 1Âà¡A11¤£Âà¡^
+		COleVariant((short)11),					// const VARIANT& fix please, Gallery: 3d Column. 1 or 11 æ˜¯å¦è½‰å‹•3Dï¼ˆ3Dé¡é©ç”¨, 1è½‰ï¼Œ11ä¸è½‰ï¼‰
 		COleVariant((short)1),					// const VARIANT& fix please, Format, use default
-		COleVariant((short)PlotBy),				// const VARIANT& PlotBy: 1.X  2.Y ¹Ïªíªºx¶b­n¨Ï¥Î ªí®æªº1:X-topÁÙ¬O2:Y-left
-		COleVariant((short)1),					// const VARIANT& Category Labels fix please ¤£·í¶bªº¨º­Ó¸ê®Æ¡A±q²Ä´X­Ó®æ¤l¶}©lºâ¡]¤ñ¸û¸s²Õ¸ê®Æ¼Æ¶q¡^
-		COleVariant((short)StartFrom),			// const VARIANT& Series Labels. Start X, ¤£·í¶bªº¨º­Ó¸ê®Æ¡A¸ê®Æ¦WºÙ­n¥Î´X­Ó®æ¤l¡]§ó§ï¦W¦r¡^
-		COleVariant((short)TRUE),				// const VARIANT& HasLegend. ¬O§_­nÅã¥Ü¸s²Õ¸ê®Æ¼ĞÅÒ
-		//¥H¤U¥i¤£¶ñ
+		COleVariant((short)PlotBy),				// const VARIANT& PlotBy: 1.X  2.Y åœ–è¡¨çš„xè»¸è¦ä½¿ç”¨ è¡¨æ ¼çš„1:X-topé‚„æ˜¯2:Y-left
+		COleVariant((short)1),					// const VARIANT& Category Labels fix please ä¸ç•¶è»¸çš„é‚£å€‹è³‡æ–™ï¼Œå¾ç¬¬å¹¾å€‹æ ¼å­é–‹å§‹ç®—ï¼ˆæ¯”è¼ƒç¾¤çµ„è³‡æ–™æ•¸é‡ï¼‰
+		COleVariant((short)StartFrom),			// const VARIANT& Series Labels. Start X, ä¸ç•¶è»¸çš„é‚£å€‹è³‡æ–™ï¼Œè³‡æ–™åç¨±è¦ç”¨å¹¾å€‹æ ¼å­ï¼ˆæ›´æ”¹åå­—ï¼‰
+		COleVariant((short)TRUE),				// const VARIANT& HasLegend. æ˜¯å¦è¦é¡¯ç¤ºç¾¤çµ„è³‡æ–™æ¨™ç±¤
+		//ä»¥ä¸‹å¯ä¸å¡«
 		_variant_t(COleVariant(TitleString)),	// const VARITNT& Title
 		_variant_t(COleVariant(X_String)),		// const VARIANT& CategoryTitle
 		_variant_t(COleVariant(Y_String)),		// const VARIANT& ValueTitle
@@ -692,27 +692,27 @@ void xlsFile::DrawChart(CString DataRangeStart, CString DataRangeEnd,
 
 void xlsFile::NewChart()
 {
-	//¦bSheet·s¼W¹Ïªí
+	//åœ¨Sheetæ–°å¢åœ–è¡¨
 	lpDisp = objSheet.ChartObjects(VOptional);
 	chartobjects.AttachDispatch(lpDisp);	
-	//¹Ïªí²Å¦XÀx¦s®æ½d³òªº¤j¤p
+	//åœ–è¡¨ç¬¦åˆå„²å­˜æ ¼ç¯„åœçš„å¤§å°
 	chartobject = chartobjects.Add(
 		(float)range.GetLeft().dblVal,
 		(float)range.GetTop().dblVal, 
 		(float)range.GetWidth().dblVal, 
 		(float)range.GetHeight().dblVal );
-	//¸ê®Æ¨Ó·½¡]½d³òleft, top¹w³]¬° ¤ñ¸ûItem©MGroup¡^
+	//è³‡æ–™ä¾†æºï¼ˆç¯„åœleft, topé è¨­ç‚º æ¯”è¼ƒItemå’ŒGroupï¼‰
 	xlsChart.AttachDispatch(chartobject.GetChart());
 }
 ///////////////////////////////////////////////////////////////////////////////////////////
-//¹Ïªí¾Ş§@
-//Àx¦s¹Ïªí
+//åœ–è¡¨æ“ä½œ
+//å„²å­˜åœ–è¡¨
 //edisonx
 void xlsFile::SaveChart(CString FullBmpPathName)
 {
 	xlsChart.Export(LPCTSTR(FullBmpPathName),VOptional,VOptional);
 }
-//¿ï¾Üªí®æ¸ê®Æªº½d³ò
+//é¸æ“‡è¡¨æ ¼è³‡æ–™çš„ç¯„åœ
 xlsFile& xlsFile::SelectChartRange(const char* x1,const char* x2)
 {
 	NewChart();
@@ -736,7 +736,7 @@ xlsFile& xlsFile::SelectChartRange(const char* x1, int y1, const char* x2, int y
 	range.AttachDispatch(lpDisp);
 	return *this;
 }
-//¤p©óZ
+//å°æ–¼Z
 xlsFile& xlsFile::SelectChartRange(char x1, int y1, char x2, int y2)
 {
 	NewChart();
@@ -750,7 +750,7 @@ xlsFile& xlsFile::SelectChartRange(char x1, int y1, char x2, int y2)
 	range.AttachDispatch(lpDisp);
 	return *this;
 }
-//¤j©óZ¡A¶}©l¿ïAA
+//å¤§æ–¼Zï¼Œé–‹å§‹é¸AA
 xlsFile& xlsFile::SelectChartRange(char xA1, char xB1, int y1, char xA2, char xB2, int y2)
 {
 	NewChart();
@@ -763,7 +763,7 @@ xlsFile& xlsFile::SelectChartRange(char xA1, char xB1, int y1, char xA2, char xB
 	return *this;
 }
 
-// ³]©wªí®æ°Ñ¼Æ¡]¹w³]·|Åã¥Ü¥ßÅéª½¤è¹Ï¡^
+// è¨­å®šè¡¨æ ¼åƒæ•¸ï¼ˆé è¨­æœƒé¡¯ç¤ºç«‹é«”ç›´æ–¹åœ–ï¼‰
 xlsFile& xlsFile::SetChart(short XaxisByToporLeft, bool isLabelVisable, CString TitleString, CString XaxisTitle, CString YaxisTitle) 
 {	
 	var.vt = VT_DISPATCH;
@@ -772,13 +772,13 @@ xlsFile& xlsFile::SetChart(short XaxisByToporLeft, bool isLabelVisable, CString 
 	short LabelVisable = (isLabelVisable) ? TRUE : FALSE ;
 		
 	xlsChart.ChartWizard(var,					// const VARIANT& Source.
-		COleVariant((short)11),					// const VARIANT& fix please, Gallery: 3d Column. 1 or 11 ¬O§_Âà°Ê3D¡]3DÃş¾A¥Î, 1Âà¡A11¤£Âà¡^
+		COleVariant((short)11),					// const VARIANT& fix please, Gallery: 3d Column. 1 or 11 æ˜¯å¦è½‰å‹•3Dï¼ˆ3Dé¡é©ç”¨, 1è½‰ï¼Œ11ä¸è½‰ï¼‰
 		COleVariant((short)1),					// const VARIANT& fix please, Format, use default
-		COleVariant(XaxisByToporLeft),			// const VARIANT& PlotBy: 1.X  2.Y ¹Ïªíªºx¶b­n¨Ï¥Î ªí®æªº1:X-topÁÙ¬O2:Y-left
-		COleVariant((short)1),					// const VARIANT& Category Labels fix please ¤£·í¶bªº¨º­Ó¸ê®Æ¡A±q²Ä´X­Ó®æ¤l¶}©lºâ¡]¤ñ¸û¸s²Õ¸ê®Æ¼Æ¶q¡^
-		COleVariant((short)1),					// const VARIANT& Series Labels. Start X, ¤£·í¶bªº¨º­Ó¸ê®Æ¡A¸ê®Æ¦WºÙ­n¥Î´X±Æ®æ¤l¡]§ó§ï¦W¦r¡^
-		COleVariant(LabelVisable),				// const VARIANT& HasLegend. ¬O§_­nÅã¥Ü¸s²Õ¸ê®Æ¼ĞÅÒ
-		//¥H¤U¥i¤£¶ñ
+		COleVariant(XaxisByToporLeft),			// const VARIANT& PlotBy: 1.X  2.Y åœ–è¡¨çš„xè»¸è¦ä½¿ç”¨ è¡¨æ ¼çš„1:X-topé‚„æ˜¯2:Y-left
+		COleVariant((short)1),					// const VARIANT& Category Labels fix please ä¸ç•¶è»¸çš„é‚£å€‹è³‡æ–™ï¼Œå¾ç¬¬å¹¾å€‹æ ¼å­é–‹å§‹ç®—ï¼ˆæ¯”è¼ƒç¾¤çµ„è³‡æ–™æ•¸é‡ï¼‰
+		COleVariant((short)1),					// const VARIANT& Series Labels. Start X, ä¸ç•¶è»¸çš„é‚£å€‹è³‡æ–™ï¼Œè³‡æ–™åç¨±è¦ç”¨å¹¾æ’æ ¼å­ï¼ˆæ›´æ”¹åå­—ï¼‰
+		COleVariant(LabelVisable),				// const VARIANT& HasLegend. æ˜¯å¦è¦é¡¯ç¤ºç¾¤çµ„è³‡æ–™æ¨™ç±¤
+		//ä»¥ä¸‹å¯ä¸å¡«
 		_variant_t(COleVariant(TitleString)),	// const VARITNT& Title
 		_variant_t(COleVariant(XaxisTitle)),	// const VARIANT& CategoryTitle
 		_variant_t(COleVariant(YaxisTitle)),	// const VARIANT& ValueTitle
@@ -786,7 +786,7 @@ xlsFile& xlsFile::SetChart(short XaxisByToporLeft, bool isLabelVisable, CString 
 		);
 	return *this;
 }
-//´¡¤J¹Ïªí
+//æ’å…¥åœ–è¡¨
 void xlsFile::InsertHistogramChart(int shapeType, bool is3D, 
 						  int isVrticl_Horztl_Other, 
 						  int isNone_Stack_Percent)
@@ -796,35 +796,35 @@ void xlsFile::InsertHistogramChart(int shapeType, bool is3D,
 	{
 		if(!is3D)//2D
 		{
-			if(isNone_Stack_Percent == 0)		 ChartType = 1;//µL°ïÅ|
-			else if (isNone_Stack_Percent == 1) ChartType = 77;//¦³°ïÅ|
-			else if (isNone_Stack_Percent == 2) ChartType = 76;//¦³¦Ê¤À¤ñ
+			if(isNone_Stack_Percent == 0)		 ChartType = 1;//ç„¡å †ç–Š
+			else if (isNone_Stack_Percent == 1) ChartType = 77;//æœ‰å †ç–Š
+			else if (isNone_Stack_Percent == 2) ChartType = 76;//æœ‰ç™¾åˆ†æ¯”
 		}
 		else		//3D
 		{
-			if(isNone_Stack_Percent == 0) 		 ChartType = -4098;//µL°ïÅ|
-			else if (isNone_Stack_Percent == 1) ChartType = 78;//¦³°ïÅ|
-			else if (isNone_Stack_Percent == 2) ChartType = 79;//¦Ê¤À¤ñ
+			if(isNone_Stack_Percent == 0) 		 ChartType = -4098;//ç„¡å †ç–Š
+			else if (isNone_Stack_Percent == 1) ChartType = 78;//æœ‰å †ç–Š
+			else if (isNone_Stack_Percent == 2) ChartType = 79;//ç™¾åˆ†æ¯”
 		}
 	} 
-	else if (shapeType == 1)//ª½¤è¹Ï
+	else if (shapeType == 1)//ç›´æ–¹åœ–
 	{
-		if(isVrticl_Horztl_Other == 0)//ª½ªº
+		if(isVrticl_Horztl_Other == 0)//ç›´çš„
 		{
 			if(!is3D)//2D
 			{
-				if(isNone_Stack_Percent == 0) 	   ChartType = 51;//µL°ïÅ|
-				else if (isNone_Stack_Percent == 1) ChartType = 52;//¦³°ïÅ|
-				else if (isNone_Stack_Percent == 2) ChartType = 53;//¦³¦Ê¤À¤ñ
+				if(isNone_Stack_Percent == 0) 	   ChartType = 51;//ç„¡å †ç–Š
+				else if (isNone_Stack_Percent == 1) ChartType = 52;//æœ‰å †ç–Š
+				else if (isNone_Stack_Percent == 2) ChartType = 53;//æœ‰ç™¾åˆ†æ¯”
 			}
 			else		//3D
 			{
-				if(isNone_Stack_Percent == 0)		ChartType = 54;//µL°ïÅ|
-				else if (isNone_Stack_Percent == 1) ChartType = 55;//¦³°ïÅ|
-				else if (isNone_Stack_Percent == 2) ChartType = 56;//¦Ê¤À¤ñ
+				if(isNone_Stack_Percent == 0)		ChartType = 54;//ç„¡å †ç–Š
+				else if (isNone_Stack_Percent == 1) ChartType = 55;//æœ‰å †ç–Š
+				else if (isNone_Stack_Percent == 2) ChartType = 56;//ç™¾åˆ†æ¯”
 			}
 		}
-		else if(isVrticl_Horztl_Other == 1)//¾îªº
+		else if(isVrticl_Horztl_Other == 1)//æ©«çš„
 		{
 			if(!is3D)//2D
 			{
@@ -839,61 +839,61 @@ void xlsFile::InsertHistogramChart(int shapeType, bool is3D,
 				else if (isNone_Stack_Percent == 2) ChartType = 62;
 			}
 		}
-		else						ChartType = -4100;	//¥­­± ¥²3D
+		else						ChartType = -4100;	//å¹³é¢ å¿…3D
 	}
 	else if (shapeType == 2)//CONE
 	{
-		if(isVrticl_Horztl_Other == 0)//ª½ªº
+		if(isVrticl_Horztl_Other == 0)//ç›´çš„
 		{
-			if(isNone_Stack_Percent == 0)		ChartType = 92;//µL°ïÅ|
-			else if (isNone_Stack_Percent == 1) ChartType = 93;//¦³°ïÅ|
-			else if (isNone_Stack_Percent == 2) ChartType = 94;//¦Ê¤À¤ñ
+			if(isNone_Stack_Percent == 0)		ChartType = 92;//ç„¡å †ç–Š
+			else if (isNone_Stack_Percent == 1) ChartType = 93;//æœ‰å †ç–Š
+			else if (isNone_Stack_Percent == 2) ChartType = 94;//ç™¾åˆ†æ¯”
 		}
-		else if(isVrticl_Horztl_Other == 1)//¾îªº
+		else if(isVrticl_Horztl_Other == 1)//æ©«çš„
 		{
-			if(isNone_Stack_Percent == 0)		ChartType = 95;//µL°ïÅ|
-			else if (isNone_Stack_Percent == 1) ChartType = 96;//¦³°ïÅ|
-			else if (isNone_Stack_Percent == 2) ChartType = 97;//¦Ê¤À¤ñ
+			if(isNone_Stack_Percent == 0)		ChartType = 95;//ç„¡å †ç–Š
+			else if (isNone_Stack_Percent == 1) ChartType = 96;//æœ‰å †ç–Š
+			else if (isNone_Stack_Percent == 2) ChartType = 97;//ç™¾åˆ†æ¯”
 		}
-		else									ChartType = 98;//¥­­± ¥²3D
+		else									ChartType = 98;//å¹³é¢ å¿…3D
 	}
 	else if (shapeType == 3)
 	{
-		if(isVrticl_Horztl_Other == 0)//ª½ªº
+		if(isVrticl_Horztl_Other == 0)//ç›´çš„
 		{
-			if(isNone_Stack_Percent == 0)		ChartType = 99;//µL°ïÅ|
-			else if (isNone_Stack_Percent == 1) ChartType = 100;//¦³°ïÅ|
-			else if (isNone_Stack_Percent == 2) ChartType = 101;//¦Ê¤À¤ñ
+			if(isNone_Stack_Percent == 0)		ChartType = 99;//ç„¡å †ç–Š
+			else if (isNone_Stack_Percent == 1) ChartType = 100;//æœ‰å †ç–Š
+			else if (isNone_Stack_Percent == 2) ChartType = 101;//ç™¾åˆ†æ¯”
 		}
-		else if(isVrticl_Horztl_Other == 1)//¾îªº
+		else if(isVrticl_Horztl_Other == 1)//æ©«çš„
 		{
-			if(isNone_Stack_Percent == 0)		ChartType = 102;//µL°ïÅ|
-			else if (isNone_Stack_Percent == 1) ChartType = 103;//¦³°ïÅ|
-			else if (isNone_Stack_Percent == 2) ChartType = 104;//¦Ê¤À¤ñ
+			if(isNone_Stack_Percent == 0)		ChartType = 102;//ç„¡å †ç–Š
+			else if (isNone_Stack_Percent == 1) ChartType = 103;//æœ‰å †ç–Š
+			else if (isNone_Stack_Percent == 2) ChartType = 104;//ç™¾åˆ†æ¯”
 		}
-		else					ChartType = 105;//¥­­± ¥²3D
+		else					ChartType = 105;//å¹³é¢ å¿…3D
 	}
 	else if (shapeType == 4)
 	{
-		if(isVrticl_Horztl_Other == 0)//ª½ªº
+		if(isVrticl_Horztl_Other == 0)//ç›´çš„
 		{
-			if(isNone_Stack_Percent == 0)		ChartType = 106;//µL°ïÅ|
-			else if (isNone_Stack_Percent == 1) ChartType = 107;//¦³°ïÅ|
-			else if (isNone_Stack_Percent == 2) ChartType = 108;//¦Ê¤À¤ñ
+			if(isNone_Stack_Percent == 0)		ChartType = 106;//ç„¡å †ç–Š
+			else if (isNone_Stack_Percent == 1) ChartType = 107;//æœ‰å †ç–Š
+			else if (isNone_Stack_Percent == 2) ChartType = 108;//ç™¾åˆ†æ¯”
 		}
-		else if(isVrticl_Horztl_Other == 1)//¾îªº
+		else if(isVrticl_Horztl_Other == 1)//æ©«çš„
 		{
-			if(isNone_Stack_Percent == 0)		ChartType = 109;//µL°ïÅ|
-			else if (isNone_Stack_Percent == 1) ChartType = 110;//¦³°ïÅ|
-			else if (isNone_Stack_Percent == 2) ChartType = 111;//¦Ê¤À¤ñ
+			if(isNone_Stack_Percent == 0)		ChartType = 109;//ç„¡å †ç–Š
+			else if (isNone_Stack_Percent == 1) ChartType = 110;//æœ‰å †ç–Š
+			else if (isNone_Stack_Percent == 2) ChartType = 111;//ç™¾åˆ†æ¯”
 		}
-		else					ChartType = 112;	//¥­­± ¥²3D
+		else					ChartType = 112;	//å¹³é¢ å¿…3D
 	}
 
 	xlsChart.SetChartType((long)ChartType);
 }
 
-//ªwªw
+//æ³¡æ³¡
 void xlsFile::InsertBubleChart(bool is3D)
 {
 	long ChartType = 51;
@@ -903,7 +903,7 @@ void xlsFile::InsertBubleChart(bool is3D)
 
 	xlsChart.SetChartType((long)ChartType);
 }
-//¶êÀô
+//åœ“ç’°
 void xlsFile::InsertDoughnutChart(bool Explode)
 {
 	long ChartType = 51;
@@ -914,7 +914,7 @@ void xlsFile::InsertDoughnutChart(bool Explode)
 	xlsChart.SetChartType((long)ChartType);
 
 }
-//¦±­±
+//æ›²é¢
 void xlsFile::InsertSurfaceChart(bool is3D, bool isWire)
 {
 	long ChartType = 51;
@@ -932,7 +932,7 @@ void xlsFile::InsertSurfaceChart(bool is3D, bool isWire)
 
 	xlsChart.SetChartType((long)ChartType);
 }
-//¹p¹F
+//é›·é”
 void xlsFile::InsertRadarChart(bool isWire, bool isDot)
 {
 	long ChartType = 51;
@@ -946,7 +946,7 @@ void xlsFile::InsertRadarChart(bool isWire, bool isDot)
 
 	xlsChart.SetChartType((long)ChartType);
 }
-//¶ê»æ
+//åœ“é¤…
 void xlsFile::InsertPieChart(bool Explode, int type2Dor3DorOf)
 {
 	long ChartType = 51;
@@ -975,15 +975,15 @@ void xlsFile::InsertLineChart(bool isDot, bool is3D, int isNone_Stack_Percent)
 	{
 		if(!isDot)
 		{
-			if(isNone_Stack_Percent == 0) 	   ChartType = 4;//µL°ïÅ|
-			else if (isNone_Stack_Percent == 1) ChartType = 63;//¦³°ïÅ|
-			else if (isNone_Stack_Percent == 2) ChartType = 64;//¦³¦Ê¤À¤ñ
+			if(isNone_Stack_Percent == 0) 	   ChartType = 4;//ç„¡å †ç–Š
+			else if (isNone_Stack_Percent == 1) ChartType = 63;//æœ‰å †ç–Š
+			else if (isNone_Stack_Percent == 2) ChartType = 64;//æœ‰ç™¾åˆ†æ¯”
 		}
 		else
 		{
-			if(isNone_Stack_Percent == 0) 	   ChartType = 65;//µL°ïÅ|
-			else if (isNone_Stack_Percent == 1) ChartType = 66;//¦³°ïÅ|
-			else if (isNone_Stack_Percent == 2) ChartType = 67;//¦³¦Ê¤À¤ñ
+			if(isNone_Stack_Percent == 0) 	   ChartType = 65;//ç„¡å †ç–Š
+			else if (isNone_Stack_Percent == 1) ChartType = 66;//æœ‰å †ç–Š
+			else if (isNone_Stack_Percent == 2) ChartType = 67;//æœ‰ç™¾åˆ†æ¯”
 		}
 	}
 	else						ChartType = -4101;//3D
@@ -991,7 +991,7 @@ void xlsFile::InsertLineChart(bool isDot, bool is3D, int isNone_Stack_Percent)
 	xlsChart.SetChartType((long)ChartType);
 }
 
-//Â÷´²¹Ï
+//é›¢æ•£åœ–
 void xlsFile::InsertXYScatterChart(bool isDot, bool isLine, bool Smooth)
 {
 	long ChartType = 51;
@@ -1012,7 +1012,7 @@ void xlsFile::InsertXYScatterChart(bool isDot, bool isLine, bool Smooth)
 	xlsChart.SetChartType((long)ChartType);
 }
 
-//ªÑ²¼¹Ï
+//è‚¡ç¥¨åœ–
 void xlsFile::InsertStockChart(int StockType)
 {
 	long ChartType = 51;
@@ -1026,7 +1026,7 @@ void xlsFile::InsertStockChart(int StockType)
 }
 //--------------------------------------------
 //--------------------------------------------
-//´¡¤J¹Ï¡]±qÀÉ®×¡^
+//æ’å…¥åœ–ï¼ˆå¾æª”æ¡ˆï¼‰
 void xlsFile::InsertImage(const char* FileNamePath, float Width, float Height)
 {
 	shapes = objSheet.GetShapes(); 

@@ -1,13 +1,13 @@
-/*******************************************************************
+ï»¿/*******************************************************************
  *                                                                 *
- * ¦¹class¥Ñkx³]­p¡A¨Ãµo§Gªìª©                                     *
- * ¤Gª©«h¥ÑEdison.Shih.´£¨Ñ¨ç¦¡¡A¸É¨¬ªìª©¤§¤£¨¬                    *
+ * æ­¤classç”±kxè¨­è¨ˆï¼Œä¸¦ç™¼ä½ˆåˆç‰ˆ                                     *
+ * äºŒç‰ˆå‰‡ç”±Edison.Shih.æä¾›å‡½å¼ï¼Œè£œè¶³åˆç‰ˆä¹‹ä¸è¶³                    *
  *                                                                 *
- * ¥ÑEdison.Shih.´£¨Ñªº¨ç¦¡¸É¨¬¡A·|°µedisonxªº°O¸¹                 *
+ * ç”±Edison.Shih.æä¾›çš„å‡½å¼è£œè¶³ï¼Œæœƒåšedisonxçš„è¨˜è™Ÿ                 *
  *                                                                 *
- * Class¥Ñ Visual C++ 6 ¶}µo                                       *
- * ¾A¥Î©óMicrosoft Excel 2003 ©ó Microsoft Excel 2003 SP3 ´ú¸ÕµL»~ *
- * ´ú¸Õ¥­¥x Microsoft Windows XP SP3                               *
+ * Classç”± Visual C++ 6 é–‹ç™¼                                       *
+ * é©ç”¨æ–¼Microsoft Excel 2003 æ–¼ Microsoft Excel 2003 SP3 æ¸¬è©¦ç„¡èª¤ *
+ * æ¸¬è©¦å¹³å° Microsoft Windows XP SP3                               *
  *                                                   2011/7/11     *
  *******************************************************************/
 #ifndef __XLEF_H__
@@ -18,21 +18,21 @@
 
 enum Boarder_Style
 {
-    BS_NONE    = 0,      //µL®Ø½u
-    BS_SOLIDLINE,        //¤@¯ë½u
-    BS_BIGDASH,          //¤p¶¡¹jµê½u- - - - - -¦³²Ê²Ó
-    BS_SMALLDASH,        //¤j¶¡¹jµê½u- - - - - -µL²Ê²Ó
-    BS_DOTDASH,          //µê½u-.-.-.-.-.-.
-    BS_DASHDOTDOT,       //µê½u.-..-..-..-..-.
-    BS_DOUBLSOLID = 9,   //Âù½u============¡]¤£¨ü²Ê²Ó§ïÅÜ¡^
-    BS_SLASHDASH  = 13   //Âù½u-/-/-/-/-/-/¡]¤£¨ü²Ê²Ó§ïÅÜ¡^
+    BS_NONE    = 0,      //ç„¡æ¡†ç·š
+    BS_SOLIDLINE,        //ä¸€èˆ¬ç·š
+    BS_BIGDASH,          //å°é–“éš”è™›ç·š- - - - - -æœ‰ç²—ç´°
+    BS_SMALLDASH,        //å¤§é–“éš”è™›ç·š- - - - - -ç„¡ç²—ç´°
+    BS_DOTDASH,          //è™›ç·š-.-.-.-.-.-.
+    BS_DASHDOTDOT,       //è™›ç·š.-..-..-..-..-.
+    BS_DOUBLSOLID = 9,   //é›™ç·š============ï¼ˆä¸å—ç²—ç´°æ”¹è®Šï¼‰
+    BS_SLASHDASH  = 13   //é›™ç·š-/-/-/-/-/-/ï¼ˆä¸å—ç²—ç´°æ”¹è®Šï¼‰
 };
-enum Boarder_Weight//¡]²Ê²Ó¡^
+enum Boarder_Weight//ï¼ˆç²—ç´°ï¼‰
 {
-    BA_HAITLINE = 1,     //¤ñ¤@¯ë¤p¡]©Ò¥H¥Îµê½uªí¥Ü¡^
-    BA_THIN,             //¤@¯ë
-    BA_MEDIUM,           //²Ê
-    BA_THICK             //«p
+    BA_HAITLINE = 1,     //æ¯”ä¸€èˆ¬å°ï¼ˆæ‰€ä»¥ç”¨è™›ç·šè¡¨ç¤ºï¼‰
+    BA_THIN,             //ä¸€èˆ¬
+    BA_MEDIUM,           //ç²—
+    BA_THICK             //åš
 };
 enum Horizontal_Alignment
 {
@@ -40,10 +40,10 @@ enum Horizontal_Alignment
 		HA_LEFT,                //edisonx
 		HA_CENTER,
 		HA_RIGHT,                //edisonx
-		HA_FILL,                //­«½Æ¦Ü¶ñº¡    //edisonx
-		HA_JUSTIFYPARA,            //¬q¸¨­«±Æ¡]¦³¯d¥ÕÃä¡A¦³¦Û°ÊÂ_¦æ¡^
-		HA_CENTERACROSS,        //¸óÄæ¸m¤¤¡]¤£¦X«÷Àx¦s®æ¡^
-		HA_JUSTIFY,                //¤À´²¹ï»ô¡]ÁY±Æ¡^
+		HA_FILL,                //é‡è¤‡è‡³å¡«æ»¿    //edisonx
+		HA_JUSTIFYPARA,            //æ®µè½é‡æ’ï¼ˆæœ‰ç•™ç™½é‚Šï¼Œæœ‰è‡ªå‹•æ–·è¡Œï¼‰
+		HA_CENTERACROSS,        //è·¨æ¬„ç½®ä¸­ï¼ˆä¸åˆæ‹¼å„²å­˜æ ¼ï¼‰
+		HA_JUSTIFY,                //åˆ†æ•£å°é½Šï¼ˆç¸®æ’ï¼‰
 };
 
 enum Vertical_Alignment
@@ -51,78 +51,78 @@ enum Vertical_Alignment
     VA_TOP = 1,        //edisonx
         VA_CENTER,            //edisonx
         VA_BOTTOM,            //edisonx
-        VA_JUSTIFYPARA,    //¬q¸¨­«±Æ¡]¦³¯d¥ÕÃä¡A¦³¦Û°ÊÂ_¦æ¡^
-        VA_JUSTIFY        //¤À´²¹ï»ô
+        VA_JUSTIFYPARA,    //æ®µè½é‡æ’ï¼ˆæœ‰ç•™ç™½é‚Šï¼Œæœ‰è‡ªå‹•æ–·è¡Œï¼‰
+        VA_JUSTIFY        //åˆ†æ•£å°é½Š
 };
 
 enum Histogram_Chart_Type
 {
-    CT_AREA = 0,     //°Ï°ì
-        CT_COLUMN,         //¤è¬W
-        CT_CONE,        //¶êÀ@
-        CT_CYLINDER,    //¶ê¬W
-        CT_PYRAMID        //ª÷¦r¶ğ
+    CT_AREA = 0,     //å€åŸŸ
+        CT_COLUMN,         //æ–¹æŸ±
+        CT_CONE,        //åœ“éŒ
+        CT_CYLINDER,    //åœ“æŸ±
+        CT_PYRAMID        //é‡‘å­—å¡”
 };
 
 enum Stock_Type
 {
-    ST_HLC = 0,    //³Ì°ª-³Ì§C-¦¬½L
-        ST_OHLC,    //¶}½L-³Ì°ª-³Ì§C-¦¬½L
-        ST_VHLC,    //¦¨¥æ¶q-³Ì°ª-³Ì§C-¦¬½L
-        ST_VOHLC    //¦¨¥æ¶q-¶}½L-³Ì°ª-³Ì§C-¦¬½L
+    ST_HLC = 0,    //æœ€é«˜-æœ€ä½-æ”¶ç›¤
+        ST_OHLC,    //é–‹ç›¤-æœ€é«˜-æœ€ä½-æ”¶ç›¤
+        ST_VHLC,    //æˆäº¤é‡-æœ€é«˜-æœ€ä½-æ”¶ç›¤
+        ST_VOHLC    //æˆäº¤é‡-é–‹ç›¤-æœ€é«˜-æœ€ä½-æ”¶ç›¤
 };
 ///////////////////////////////////
 //Boarder
 //Set Boarder Style
-// #define BS_NONE          0  //µL®Ø½u
-// #define BS_SOLIDLINE     1  //¤@¯ë½u
-// #define BS_BIGDASH       2  //¤p¶¡¹jµê½u- - - - - -¦³²Ê²Ó
-// #define BS_SMALLDASH     3  //¤j¶¡¹jµê½u- - - - - -µL²Ê²Ó
-// #define BS_DOTDASH       4  //µê½u-.-.-.-.-.-.
-// #define BS_DASHDOTDOT    5  //µê½u.-..-..-..-..-.
+// #define BS_NONE          0  //ç„¡æ¡†ç·š
+// #define BS_SOLIDLINE     1  //ä¸€èˆ¬ç·š
+// #define BS_BIGDASH       2  //å°é–“éš”è™›ç·š- - - - - -æœ‰ç²—ç´°
+// #define BS_SMALLDASH     3  //å¤§é–“éš”è™›ç·š- - - - - -ç„¡ç²—ç´°
+// #define BS_DOTDASH       4  //è™›ç·š-.-.-.-.-.-.
+// #define BS_DASHDOTDOT    5  //è™›ç·š.-..-..-..-..-.
 // //6, 7, 8 = 1
-// #define BS_DOUBLSOLID    9  //Âù½u============¡]¤£¨ü²Ê²Ó§ïÅÜ¡^
+// #define BS_DOUBLSOLID    9  //é›™ç·š============ï¼ˆä¸å—ç²—ç´°æ”¹è®Šï¼‰
 // //10, 11, 12 = 1
-// #define BS_SLASHDASH    13  //Âù½u-/-/-/-/-/-/¡]¤£¨ü²Ê²Ó§ïÅÜ¡^
+// #define BS_SLASHDASH    13  //é›™ç·š-/-/-/-/-/-/ï¼ˆä¸å—ç²—ç´°æ”¹è®Šï¼‰
 
-//Set Boarder Weight¡]²Ê²Ó¡^
-// #define BA_HAITLINE    1  //¤ñ¤@¯ë¤p¡]©Ò¥H¥Îµê½uªí¥Ü¡^
-// #define BA_THIN        2  //¤@¯ë
-// #define BA_MEDIUM      3  //²Ê
-// #define BA_THICK       4  //«p
+//Set Boarder Weightï¼ˆç²—ç´°ï¼‰
+// #define BA_HAITLINE    1  //æ¯”ä¸€èˆ¬å°ï¼ˆæ‰€ä»¥ç”¨è™›ç·šè¡¨ç¤ºï¼‰
+// #define BA_THIN        2  //ä¸€èˆ¬
+// #define BA_MEDIUM      3  //ç²—
+// #define BA_THICK       4  //åš
 //Set Boarder Color
 //0-56
 
 ///////////////////////////////////
 //Alignment
 //Set Horizontal Alignment
-// #define HA_GENERAL            1//³q¥Î®æ¦¡
+// #define HA_GENERAL            1//é€šç”¨æ ¼å¼
 // #define HA_LEFT                2                //edisonx
 // #define HA_CENTER            3
 // #define HA_RIGHT            4                //edisonx
-// #define HA_FILL                5//­«½Æ¦Ü¶ñº¡    //edisonx
-// #define HA_JUSTIFYPARA         6//¬q¸¨­«±Æ¡]¦³¯d¥ÕÃä¡A¦³¦Û°ÊÂ_¦æ¡^
-// #define HA_CENTERACROSS        7//¸óÄæ¸m¤¤¡]¤£¦X«÷Àx¦s®æ¡^
-// #define HA_JUSTIFY            8//¤À´²¹ï»ô¡]ÁY±Æ¡^
+// #define HA_FILL                5//é‡è¤‡è‡³å¡«æ»¿    //edisonx
+// #define HA_JUSTIFYPARA         6//æ®µè½é‡æ’ï¼ˆæœ‰ç•™ç™½é‚Šï¼Œæœ‰è‡ªå‹•æ–·è¡Œï¼‰
+// #define HA_CENTERACROSS        7//è·¨æ¬„ç½®ä¸­ï¼ˆä¸åˆæ‹¼å„²å­˜æ ¼ï¼‰
+// #define HA_JUSTIFY            8//åˆ†æ•£å°é½Šï¼ˆç¸®æ’ï¼‰
 //Set Vertical Alignment    
 // #define VA_TOP                1                //edisonx
 // #define VA_CENTER            2                //edisonx
 // #define VA_BOTTOM            3                //edisonx
-// #define VA_JUSTIFYPARA        4//¬q¸¨­«±Æ¡]¦³¯d¥ÕÃä¡A¦³¦Û°ÊÂ_¦æ¡^
-// #define VA_JUSTIFY            5//¤À´²¹ï»ô
+// #define VA_JUSTIFYPARA        4//æ®µè½é‡æ’ï¼ˆæœ‰ç•™ç™½é‚Šï¼Œæœ‰è‡ªå‹•æ–·è¡Œï¼‰
+// #define VA_JUSTIFY            5//åˆ†æ•£å°é½Š
 
 ///////////////////////////////////
 //Histogram Chart Type
-// #define CT_AREA        0    //°Ï°ì
-// #define CT_COLUMN    1    //¤è¬W
-// #define CT_CONE        2    //¶êÀ@
-// #define CT_CYLINDER    3    //¶ê¬W
-// #define CT_PYRAMID    4    //ª÷¦r¶ğ
+// #define CT_AREA        0    //å€åŸŸ
+// #define CT_COLUMN    1    //æ–¹æŸ±
+// #define CT_CONE        2    //åœ“éŒ
+// #define CT_CYLINDER    3    //åœ“æŸ±
+// #define CT_PYRAMID    4    //é‡‘å­—å¡”
 //Stock Type
-// #define ST_HLC        0    //³Ì°ª-³Ì§C-¦¬½L
-// #define ST_OHLC        1    //¶}½L-³Ì°ª-³Ì§C-¦¬½L
-// #define ST_VHLC        2    //¦¨¥æ¶q-³Ì°ª-³Ì§C-¦¬½L
-// #define ST_VOHLC    3    //¦¨¥æ¶q-¶}½L-³Ì°ª-³Ì§C-¦¬½L
+// #define ST_HLC        0    //æœ€é«˜-æœ€ä½-æ”¶ç›¤
+// #define ST_OHLC        1    //é–‹ç›¤-æœ€é«˜-æœ€ä½-æ”¶ç›¤
+// #define ST_VHLC        2    //æˆäº¤é‡-æœ€é«˜-æœ€ä½-æ”¶ç›¤
+// #define ST_VOHLC    3    //æˆäº¤é‡-é–‹ç›¤-æœ€é«˜-æœ€ä½-æ”¶ç›¤
 
 class xlsFile
 {
@@ -148,14 +148,14 @@ class xlsFile
     
     Shapes shapes;
 
-    char buf[200];  //¼È¦sªº¦r¦ê
+    char buf[200];  //æš«å­˜çš„å­—ä¸²
     char buf1[200];
     char buf2[200];
       
 public:
     xlsFile();
     ~xlsFile();
-    //xlsFile& //¶}¤FÀÉ®×¤§«á¥i¥HÄ~Äò¿ï¾ÜSheet©M©R¦W
+    //xlsFile& //é–‹äº†æª”æ¡ˆä¹‹å¾Œå¯ä»¥ç¹¼çºŒé¸æ“‡Sheetå’Œå‘½å
     xlsFile& New();
     xlsFile& Open();
     xlsFile& Open(const char*);
@@ -163,131 +163,131 @@ public:
     void Save();
     //void Quit(CString FileName);
     void Quit();
-    void SetVisible(bool);//³]©wµøµ¡¬°¬İ±o¨£¡A¨Ã§â±±¨îÅv¥æµ¹¨Ï¥ÎªÌ
+    void SetVisible(bool);//è¨­å®šè¦–çª—ç‚ºçœ‹å¾—è¦‹ï¼Œä¸¦æŠŠæ§åˆ¶æ¬Šäº¤çµ¦ä½¿ç”¨è€…
     //----------------------------------------------------
-    //Sheet¾Ş§@
-    long SheetTotal();                        //¨ú±o Sheet ­Ó¼Æ
-    void SetSheetName(short, const char*);    //¥ÑSheetNumber    «ü©wSheetName
-    CString GetSheetName(short);              //¥ÑSheetNumber    ¨ú±oSheetName
+    //Sheetæ“ä½œ
+    long SheetTotal();                        //å–å¾— Sheet å€‹æ•¸
+    void SetSheetName(short, const char*);    //ç”±SheetNumber    æŒ‡å®šSheetName
+    CString GetSheetName(short);              //ç”±SheetNumber    å–å¾—SheetName
     
-    xlsFile& SelectSheet(const char*);        //¥ÑSheetName      ¿ï¾ÜSheet
-    xlsFile& SelectSheet(short);              //¥ÑSheetNumber    ¿ï¾ÜSheet
-    void CopySheet(const char*);              //½Æ»sSheetName    «ü©w´¡¤JSheetªº¦ì¸m¡A¨Ã«ü©w·sSheet¦WºÙ
-    void CopySheet(short);                    //½Æ»sSheetNumber  «ü©w´¡¤JSheetªº¦ì¸m¡A¨Ã«ü©w¦WºÙ
-    void DelSheet(const char*);               //¿ïSheetName      §R°£Sheet
-    void DelSheet(short);                     //¿ïSheetNumber    §R°£Sheet
+    xlsFile& SelectSheet(const char*);        //ç”±SheetName      é¸æ“‡Sheet
+    xlsFile& SelectSheet(short);              //ç”±SheetNumber    é¸æ“‡Sheet
+    void CopySheet(const char*);              //è¤‡è£½SheetName    æŒ‡å®šæ’å…¥Sheetçš„ä½ç½®ï¼Œä¸¦æŒ‡å®šæ–°Sheetåç¨±
+    void CopySheet(short);                    //è¤‡è£½SheetNumber  æŒ‡å®šæ’å…¥Sheetçš„ä½ç½®ï¼Œä¸¦æŒ‡å®šåç¨±
+    void DelSheet(const char*);               //é¸SheetName      åˆªé™¤Sheet
+    void DelSheet(short);                     //é¸SheetNumber    åˆªé™¤Sheet
     //-----------------------------------------------------
     //
-    long GetHorztlStartCell(); // °_©l¦æ
-    long GetVrticlStartCell(); // °_©l¦C
-    long GetHorztlTotalCell(); // Á`¦æ¼Æ
-    long GetVrticlTotalCell(); // Á`¦C¼Æ
+    long GetHorztlStartCell(); // èµ·å§‹è¡Œ
+    long GetVrticlStartCell(); // èµ·å§‹åˆ—
+    long GetHorztlTotalCell(); // ç¸½è¡Œæ•¸
+    long GetVrticlTotalCell(); // ç¸½åˆ—æ•¸
     //-----------------------------------------------------
-    //xlsFile& ¿ï¤F®æ¤l¤§«á¥i¥HÄ~Äò¤U¡uÅª¡v¡u¼g¡vªº¦¨­û¨ç¼Æ
-    //¿ï¤@®æ
+    //xlsFile& é¸äº†æ ¼å­ä¹‹å¾Œå¯ä»¥ç¹¼çºŒä¸‹ã€Œè®€ã€ã€Œå¯«ã€çš„æˆå“¡å‡½æ•¸
+    //é¸ä¸€æ ¼
     xlsFile& SelectCell(const char* );    
     xlsFile& SelectCell(const char* , int );
     xlsFile& SelectCell(char,int);    
     xlsFile& SelectCell(char,char,int);    
-    //¿ï¤@­Ó½d³ò
+    //é¸ä¸€å€‹ç¯„åœ
     xlsFile& SelectCell(const char* , const char* );    
     xlsFile& SelectCell(const char* , int ,const char* , int );
     xlsFile& SelectCell(char,int,char,int);    
     xlsFile& SelectCell(char,char,int,char,char,int);    
     //--------------------------------------------
-    void ClearCell();                                //²M°£Àx¦s®æ
+    void ClearCell();                                //æ¸…é™¤å„²å­˜æ ¼
     xlsFile& SetMergeCells(short vMerge = TRUE, 
-                    bool isCenterAcross = true);     //¦X¨ÖÀx¦s®æ¡]³q±`·|°t¸óÄæ¸m¤¤¡^
+                    bool isCenterAcross = true);     //åˆä½µå„²å­˜æ ¼ï¼ˆé€šå¸¸æœƒé…è·¨æ¬„ç½®ä¸­ï¼‰
     //--------------------------------------------
-    //¹ï»ô
-    xlsFile& SetHorztlAlgmet(short);    //¤ô¥­¹ï»ô
-    xlsFile& SetVrticlAlgmet(short);    //««ª½¹ï»ô
-    xlsFile& SetTextAngle(short Angle); //¤è¦V-¤å¦r¨¤«×
-    xlsFile& AutoNewLine(bool NewLine); //¦Û°Ê´«¦æ
+    //å°é½Š
+    xlsFile& SetHorztlAlgmet(short);    //æ°´å¹³å°é½Š
+    xlsFile& SetVrticlAlgmet(short);    //å‚ç›´å°é½Š
+    xlsFile& SetTextAngle(short Angle); //æ–¹å‘-æ–‡å­—è§’åº¦
+    xlsFile& AutoNewLine(bool NewLine); //è‡ªå‹•æ›è¡Œ
     //---------------------------------------------
-    //®æ½u
+    //æ ¼ç·š
     xlsFile& SetCellBorder(long BoarderStyle = 1, 
-        int BoarderWeight = 2, long BoarderColor = 1);  //³]©w®Ø½u²Ê²Ó©MÃC¦â
+        int BoarderWeight = 2, long BoarderColor = 1);  //è¨­å®šæ¡†ç·šç²—ç´°å’Œé¡è‰²
     //---------------------------------------
-    //Àx¦s®æ¤j¤p
-    void AutoFitHight();            //¦Û°Ê½Õ¾ã¦C°ª
-    void AutoFitWidth();            //¦Û°Ê½Õ¾ãÄæ¼e
-    xlsFile& SetCellHeight(float);    //³]©w¦C°ª
-    xlsFile& SetCellWidth(float);    //³]©wÄæ¼e
+    //å„²å­˜æ ¼å¤§å°
+    void AutoFitHight();            //è‡ªå‹•èª¿æ•´åˆ—é«˜
+    void AutoFitWidth();            //è‡ªå‹•èª¿æ•´æ¬„å¯¬
+    xlsFile& SetCellHeight(float);    //è¨­å®šåˆ—é«˜
+    xlsFile& SetCellWidth(float);    //è¨­å®šæ¬„å¯¬
     //---------------------------------------------
-    //¦r
-    xlsFile& SetFont(const char* fontType = "·s²Ó©úÅé");    //³]©w¦r«¬¡]¹w³]·s²Ó©úÅé¡^
-    xlsFile& SetFontBold(bool isBold = true);               //²ÊÅé
-    xlsFile& SetFontStrkthrgh(bool isBold = true);          //§R°£½u
-    xlsFile& SetFontSize(short fontSize = 12);              //³]©w¦rÅé¤j¤p¡]¹w³]12pt¡^
-    xlsFile& SetFontColor(short colorIndex = 1);            //¦r«¬ÃC¦â¡]¹w³]¶Â¦â¡^
+    //å­—
+    xlsFile& SetFont(const char* fontType = "æ–°ç´°æ˜é«”");    //è¨­å®šå­—å‹ï¼ˆé è¨­æ–°ç´°æ˜é«”ï¼‰
+    xlsFile& SetFontBold(bool isBold = true);               //ç²—é«”
+    xlsFile& SetFontStrkthrgh(bool isBold = true);          //åˆªé™¤ç·š
+    xlsFile& SetFontSize(short fontSize = 12);              //è¨­å®šå­—é«”å¤§å°ï¼ˆé è¨­12ptï¼‰
+    xlsFile& SetFontColor(short colorIndex = 1);            //å­—å‹é¡è‰²ï¼ˆé è¨­é»‘è‰²ï¼‰
     //---------------------------------------------
-    xlsFile& SetCellColor(short);//³]©w©³¦â
+    xlsFile& SetCellColor(short);//è¨­å®šåº•è‰²
     //---------------------------------------------
-    //¡]17-32ÁôÂÃª©¤]¦³¦¬¶i¨Ó¡^
-    //Microsoft Excel ªºÃC¦â±Æ§Ç¬O¨Ì
-    //¬õ¡B¾í¡B¶À¡Bºñ¡BÂÅ¡BÀQ¡Bµµ¡B¦Ç¡]y¡^¡A¥Ñ²`¨ì²L¡]x¡^
-    //¤£¹Lµ´¹ïRGB¨Ã¨S¦³³W«ßªº¦s¦b³o­Óªí¸Ì
-    short SelectColor(short x = 8, short y = 7);  //¨Ìexcel¤¶­±ªº®y¼Ğ¿ï¾ÜÃC¦â
-    short SelectColor(const char ColorChar = 'W');    //§Ö³tª©¡]¶ÂD¡B¥ÕW¡B¬õR¡BºñG¡BÂÅB¡B¶ÀY¡^
+    //ï¼ˆ17-32éš±è—ç‰ˆä¹Ÿæœ‰æ”¶é€²ä¾†ï¼‰
+    //Microsoft Excel çš„é¡è‰²æ’åºæ˜¯ä¾
+    //ç´…ã€æ©™ã€é»ƒã€ç¶ ã€è—ã€é›ã€ç´«ã€ç°ï¼ˆyï¼‰ï¼Œç”±æ·±åˆ°æ·ºï¼ˆxï¼‰
+    //ä¸éçµ•å°RGBä¸¦æ²’æœ‰è¦å¾‹çš„å­˜åœ¨é€™å€‹è¡¨è£¡
+    short SelectColor(short x = 8, short y = 7);  //ä¾excelä»‹é¢çš„åº§æ¨™é¸æ“‡é¡è‰²
+    short SelectColor(const char ColorChar = 'W');    //å¿«é€Ÿç‰ˆï¼ˆé»‘Dã€ç™½Wã€ç´…Rã€ç¶ Gã€è—Bã€é»ƒYï¼‰
     //---------------------------------------------
-    //³]©w¸ê®Æ¶iÀx¦s®æ¡]¦s¦¨¦r¦ê¡^
-    //¤@¯ëª©
+    //è¨­å®šè³‡æ–™é€²å„²å­˜æ ¼ï¼ˆå­˜æˆå­—ä¸²ï¼‰
+    //ä¸€èˆ¬ç‰ˆ
     void SetCell(int);
     void SetCell(double);
     void SetCell(long);    
     void SetCell(const char* );    
     void SetCell(CString );    
-    //¦Û­q²Ó³¡®æ¦¡ª©
+    //è‡ªè¨‚ç´°éƒ¨æ ¼å¼ç‰ˆ
     void SetCell(const char*, int);
     void SetCell(const char*, double);
     void SetCell(const char*, long);
     //--------------------------------------------
-    //¨ú­È
+    //å–å€¼
     int GetCell2Int();
     CString GetCell2CStr();
     double GetCell2Double();
     //--------------------------------------------
-    //±Æ§Ç¡]¨Ì¦C±Æ§Ç¡^//edisonx
+    //æ’åºï¼ˆä¾åˆ—æ’åºï¼‰//edisonx
     void Sort(CString IndexCell1, long DeCrement1,
               CString IndexCell2 = "", long DeCrement2 = 1,
               CString IndexCell3 = "", long DeCrement3 = 1);
     //--------------------------------------------
-    //¬Ò¥Ñedisonx´£¨Ñ¨ç¼Æ¸ê®Æ
+    //çš†ç”±edisonxæä¾›å‡½æ•¸è³‡æ–™
 
-	//Àx¦s¹Ïªí¹Ï¤ù.bmp¡].jpg¥ç¥i¥H¡^
+	//å„²å­˜åœ–è¡¨åœ–ç‰‡.bmpï¼ˆ.jpgäº¦å¯ä»¥ï¼‰
     void SaveChart(CString FullBmpPathName);
-    //¹Ïªí¡]¤TÃş«¬ªº¨ç¼Æ¦b¨C¦¸«Ø¥ß³£­n¨Ï¥Î¡^
-	//¨Ï¥Î«e¥²¶·¿ï¾Ü¶K¤WChartªºÀx¦s®æ½d³ò
+    //åœ–è¡¨ï¼ˆä¸‰é¡å‹çš„å‡½æ•¸åœ¨æ¯æ¬¡å»ºç«‹éƒ½è¦ä½¿ç”¨ï¼‰
+	//ä½¿ç”¨å‰å¿…é ˆé¸æ“‡è²¼ä¸ŠChartçš„å„²å­˜æ ¼ç¯„åœ
     
-	//¿ï¾Ü¸ê®Æ½d³ò
+	//é¸æ“‡è³‡æ–™ç¯„åœ
 	xlsFile& SelectChartRange(const char* , const char* );    
     xlsFile& SelectChartRange(const char* , int ,const char* , int );
     xlsFile& SelectChartRange(char,int,char,int);    
     xlsFile& SelectChartRange(char,char,int,char,char,int);
-	//³]©wChart°Ñ¼Æ
+	//è¨­å®šChartåƒæ•¸
     xlsFile& SetChart(short XaxisByToporLeft = 2, bool isLabelVisable = 1, 
 		CString = "" , CString = "" , CString = "" );
-    //°Ï°ì¡Bª½¤è¡B¤è¬W¡B¶ê¬W¡B¶êÀ@¡Bª÷¦r¶ğ
+    //å€åŸŸã€ç›´æ–¹ã€æ–¹æŸ±ã€åœ“æŸ±ã€åœ“éŒã€é‡‘å­—å¡”
     void InsertHistogramChart(int shapeType = CT_COLUMN, bool is3D = 0, 
                           int isVrticlorHorztlorOther = 0, 
                           int isNone_Stack_Percent = 0);
-    //¨ä¥¦¡]¯S®í¹Ïªí¡^   
-    void InsertBubleChart(bool is3D = 0);                                                 //ªwªw¹Ï
-    void InsertDoughnutChart(bool Explode = 0);                                           //¶êÀô¹Ï
-    void InsertSurfaceChart(bool is3D = 0, bool isWire = 0);                              //¦±­±¹Ï
-    void InsertRadarChart(bool isWire = 0, bool isDot = 1);                               //¹p¹F¹Ï
-    void InsertPieChart(bool Explode = 0, int type2Dor3DorOf = 0);                        //¶ê»æ¹Ï
-    void InsertLineChart(bool isDot = 1, bool is3D = 0, int isNone_Stack_Percent = 0);    //§é½u¹Ï
-    void InsertXYScatterChart(bool isDot, bool isLine, bool Smooth);                      //Â÷´²¹Ï
-    void InsertStockChart(int);                                                           //ªÑ²¼¹Ï
+    //å…¶å®ƒï¼ˆç‰¹æ®Šåœ–è¡¨ï¼‰   
+    void InsertBubleChart(bool is3D = 0);                                                 //æ³¡æ³¡åœ–
+    void InsertDoughnutChart(bool Explode = 0);                                           //åœ“ç’°åœ–
+    void InsertSurfaceChart(bool is3D = 0, bool isWire = 0);                              //æ›²é¢åœ–
+    void InsertRadarChart(bool isWire = 0, bool isDot = 1);                               //é›·é”åœ–
+    void InsertPieChart(bool Explode = 0, int type2Dor3DorOf = 0);                        //åœ“é¤…åœ–
+    void InsertLineChart(bool isDot = 1, bool is3D = 0, int isNone_Stack_Percent = 0);    //æŠ˜ç·šåœ–
+    void InsertXYScatterChart(bool isDot, bool isLine, bool Smooth);                      //é›¢æ•£åœ–
+    void InsertStockChart(int);                                                           //è‚¡ç¥¨åœ–
     //--------------------------------------------
-    void InsertImage(const char* , float , float );  //´¡¤J¹Ï¤ù
-    void InsertImage(const char* );                  //´¡¤J¹Ï¤ù¡]¥ı¿ï¨ú½d³ò¡A¹ÏÀÉ¥²¥¢¯u¡^
+    void InsertImage(const char* , float , float );  //æ’å…¥åœ–ç‰‡
+    void InsertImage(const char* );                  //æ’å…¥åœ–ç‰‡ï¼ˆå…ˆé¸å–ç¯„åœï¼Œåœ–æª”å¿…å¤±çœŸï¼‰
 
 private:
-    void xlsFile::NewChart();  //¦bSheet·s¼W¹Ïªí
-    //¨¾¤î¥ô¦ó¹Bºâ
+    void xlsFile::NewChart();  //åœ¨Sheetæ–°å¢åœ–è¡¨
+    //é˜²æ­¢ä»»ä½•é‹ç®—
     void operator+(const xlsFile&);
     void operator-(const xlsFile&);
     void operator*(const xlsFile&);
@@ -313,11 +313,11 @@ private:
 };
 /*
 
-  range.SetFormula(COleVariant("=RAND()*100000"));    //®M¤½¦¡
-  range.setSetValue(COleVariant("Last Name"));        //¿é¤J­È
-  range.SetNumberFormat(COleVariant("$0.00"));        //¼Æ¦r®æ¦¡
+  range.SetFormula(COleVariant("=RAND()*100000"));    //å¥—å…¬å¼
+  range.setSetValue(COleVariant("Last Name"));        //è¼¸å…¥å€¼
+  range.SetNumberFormat(COleVariant("$0.00"));        //æ•¸å­—æ ¼å¼
 
-  //´¡¹Ï
+  //æ’åœ–
   Shapes shapes = objSheet.GetShapes(); 
   range = objSheet.GetRange(COleVariant("J7"),COleVariant("R21")); 
   
@@ -336,19 +336,19 @@ private:
     DeCrement1,    // long Order1, [ 1(ascending order) or 2(descending order) ]
     key2,        // key2, 
     VOptional,    // type, [xlSortLabels, xlSortValues]
-    DeCrement2,    // long Order2, [ 1(¤É¾­) or 2( ­°) ]
+    DeCrement2,    // long Order2, [ 1(å‡å†ª) or 2( é™) ]
     key3,        // key3
-    DeCrement3,    // long Order3, [ 1(¤É¾­) or 2( ­°) ]
-    2,            // Header, [0,1 : ¤£§t title 2 : title ¡]¿ï¨ú½d³ò¡^¤@°_±Æ
-    //¶i¶¥
-    VOptional,                    // OrderCustom [±q1¶}©l¡A¦Û©w¸q±Æ§Ç¶¶§Ç¦Cªí¤¤¤§¯Á¤Ş¸¹¡A¬Ù²¤¨Ï¥Î±`³W]
-    _variant_t((short)TRUE),    // MatchCase [TRUE¤À¤j¤p¼g±Æ]
-    1,                            // Orientation : [±Æ§Ç¤è¦V, 1:«ö¦C, 2:«ö¦æ)
-    1,                            // SortMethod : [1:«ö¦r²Åº~»y«÷­µ¶¶§Ç, 2:«ö¦r²Åµ§µe¼Æ]
-    //¥¼ª¾¿ï¶µ
-    1, // DataOption1 ¥i¿ï 0 »P 1
-    1, // DataOption2 ¥i¿ï 0 »P 1
-    1  // DataOption3 ¥i¿ï 0 »P 1
+    DeCrement3,    // long Order3, [ 1(å‡å†ª) or 2( é™) ]
+    2,            // Header, [0,1 : ä¸å« title 2 : title ï¼ˆé¸å–ç¯„åœï¼‰ä¸€èµ·æ’
+    //é€²éš
+    VOptional,                    // OrderCustom [å¾1é–‹å§‹ï¼Œè‡ªå®šç¾©æ’åºé †åºåˆ—è¡¨ä¸­ä¹‹ç´¢å¼•è™Ÿï¼Œçœç•¥ä½¿ç”¨å¸¸è¦]
+    _variant_t((short)TRUE),    // MatchCase [TRUEåˆ†å¤§å°å¯«æ’]
+    1,                            // Orientation : [æ’åºæ–¹å‘, 1:æŒ‰åˆ—, 2:æŒ‰è¡Œ)
+    1,                            // SortMethod : [1:æŒ‰å­—ç¬¦æ¼¢èªæ‹¼éŸ³é †åº, 2:æŒ‰å­—ç¬¦ç­†ç•«æ•¸]
+    //æœªçŸ¥é¸é …
+    1, // DataOption1 å¯é¸ 0 èˆ‡ 1
+    1, // DataOption2 å¯é¸ 0 èˆ‡ 1
+    1  // DataOption3 å¯é¸ 0 èˆ‡ 1
         );
 */
 #endif
