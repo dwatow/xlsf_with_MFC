@@ -1,4 +1,4 @@
-
+ï»¿
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // cexcel.h
 
@@ -57,44 +57,44 @@ public:
 	BOOL OpenExistFile(CString FullPathName, BOOL VISIBLE);
 	void OpenNewFile(BOOL VISIBLE);
 
-	long GetStartColumn(); // °_©l¦æ
-	long GetStartRow(); // °_©l¦C
-	long GetTotalColumn(); // Á`¦æ¼Æ
-	long GetTotalRow(); // Á`¦C¼Æ
+	long GetStartColumn(); // èµ·å§‹è¡Œ
+	long GetStartRow(); // èµ·å§‹åˆ—
+	long GetTotalColumn(); // ç¸½è¡Œæ•¸
+	long GetTotalRow(); // ç¸½åˆ—æ•¸
 	
-	long GetSheetNum(); // ¨ú±o sheet ­Ó¼Æ	
-	BOOL InsertSheet(long nIndex, CString SheetName); // ´¡¤J sheet
-	BOOL DelSheetIndex(long nIndex); // start from 1 // §R°£
-	BOOL SetSheetName(long nIndex, CString SheetName); // start from 1 // ³]¦W	
-	BOOL SetActiveSheet(long nIndex); // ³]©w·í«e Sheet
-	BOOL GetSheetName(long nIndex, CString &SheetName); // ¨ú nSheet Name
-	void GetSheetName(CString *SheetName); // ¨ú±o sheet name	
+	long GetSheetNum(); // å–å¾— sheet å€‹æ•¸	
+	BOOL InsertSheet(long nIndex, CString SheetName); // æ’å…¥ sheet
+	BOOL DelSheetIndex(long nIndex); // start from 1 // åˆªé™¤
+	BOOL SetSheetName(long nIndex, CString SheetName); // start from 1 // è¨­å	
+	BOOL SetActiveSheet(long nIndex); // è¨­å®šç•¶å‰ Sheet
+	BOOL GetSheetName(long nIndex, CString &SheetName); // å– nSheet Name
+	void GetSheetName(CString *SheetName); // å–å¾— sheet name	
 	
 	void ClearRange(CString StartCell, CString EndCell);
 	void ClearRange(UINT StartX, UINT StartY, UINT EndX, UINT EndY);
 	
-	void Merge(CString StartCell, CString EndCell); // ¦X¨ÖÀx¦s®æ
-	void Merge(UINT StartX, UINT StartY, UINT EndX, UINT EndY); // ¦X¨ÖÀx¦s®æ
-	void MergeAll(CString StartCell, CString EndCell); // ¦X¨ÖÀx¦s®æ
-	void MergeAll(UINT StartX, UINT StartY, UINT EndX, UINT EndY); // ¦X¨ÖÀx¦s®æ
+	void Merge(CString StartCell, CString EndCell); // åˆä½µå„²å­˜æ ¼
+	void Merge(UINT StartX, UINT StartY, UINT EndX, UINT EndY); // åˆä½µå„²å­˜æ ¼
+	void MergeAll(CString StartCell, CString EndCell); // åˆä½µå„²å­˜æ ¼
+	void MergeAll(UINT StartX, UINT StartY, UINT EndX, UINT EndY); // åˆä½µå„²å­˜æ ¼
 
 	void SetHorizontal(CString StartCell, CString EndCell, UINT Aligment); // 2:Left, 3:Center, 4:Right, 5:Repeat
 	void SetHorizontal(UINT StartX, UINT StartY, UINT EndX, UINT EndY, UINT Aligment); // 2:Left, 3:Center, 4:Right, 5:Repeat
-	void SetHorizontalLeft(CString StartCell, CString EndCell); // ¾a¥ª¹ï»ô
-	void SetHorizontalLeft(UINT StartX, UINT StartY, UINT EndX, UINT EndY); // ¾a¥ª¹ï»ô
-	void SetHorizontalCenter(CString StartCell, CString EndCell); // ¸m¤¤¹ï»ô
-	void SetHorizontalCenter(UINT StartX, UINT StartY, UINT EndX, UINT EndY); // ¸m¤¤¹ï»ô
-	void SetHorizontalRight(CString StartCell, CString EndCell); // ¾a¥k¹ï»ô
-	void SetHorizontalRight(UINT StartX, UINT StartY, UINT EndX, UINT EndY); // ¾a¥k¹ï»ô
+	void SetHorizontalLeft(CString StartCell, CString EndCell); // é å·¦å°é½Š
+	void SetHorizontalLeft(UINT StartX, UINT StartY, UINT EndX, UINT EndY); // é å·¦å°é½Š
+	void SetHorizontalCenter(CString StartCell, CString EndCell); // ç½®ä¸­å°é½Š
+	void SetHorizontalCenter(UINT StartX, UINT StartY, UINT EndX, UINT EndY); // ç½®ä¸­å°é½Š
+	void SetHorizontalRight(CString StartCell, CString EndCell); // é å³å°é½Š
+	void SetHorizontalRight(UINT StartX, UINT StartY, UINT EndX, UINT EndY); // é å³å°é½Š
 
 	void SetVertical(CString StartCell, CString EndCell,UINT Alignment); // 1:UP 2:Down 3:Mid
 	void SetVertical(UINT StartX, UINT StartY, UINT EndX, UINT EndY,UINT Alignment); // 1:UP 2:Down 3:Mid
-	void SetVerticalUp(CString StartCell, CString EndCell); // ¾a¤W
-	void SetVerticalUp(UINT StartX, UINT StartY, UINT EndX, UINT EndY); // ¾a¤W
-	void SetVerticalDown(CString StartCell, CString EndCell); // ¾a¤U
-	void SetVerticalDown(UINT StartX, UINT StartY, UINT EndX, UINT EndY); // ¾a¤U
-	void SetVerticalMid(CString StartCell, CString EndCell); // ¸m¤¤
-	void SetVerticalMid(UINT StartX, UINT StartY, UINT EndX, UINT EndY); // ¸m¤¤
+	void SetVerticalUp(CString StartCell, CString EndCell); // é ä¸Š
+	void SetVerticalUp(UINT StartX, UINT StartY, UINT EndX, UINT EndY); // é ä¸Š
+	void SetVerticalDown(CString StartCell, CString EndCell); // é ä¸‹
+	void SetVerticalDown(UINT StartX, UINT StartY, UINT EndX, UINT EndY); // é ä¸‹
+	void SetVerticalMid(CString StartCell, CString EndCell); // ç½®ä¸­
+	void SetVerticalMid(UINT StartX, UINT StartY, UINT EndX, UINT EndY); // ç½®ä¸­
 
 	void Border(CString StartCell, CString EndCell, UINT LineStyle,UINT Weight,UINT ColorIndex); // LineStyle:1~5, 9, Weight:1-4
 	void Border(UINT StartX, UINT StartY, UINT EndX, UINT EndY, UINT LineStyle,UINT Weight,UINT ColorIndex); // LineStyle:1~5, 9, Weight:1-4
@@ -108,38 +108,38 @@ public:
 	void AutoSetWidth(CString StartCell, CString EndCell); // set field width
 	void AutoSetWidth(UINT Start, UINT End); // set field width
 
-	void SetFontName(CString StartCell, CString EndCell, CString FontName); // ¦r«¬
-	void SetFontName(UINT StartX, UINT StartY, UINT EndX, UINT EndY, CString FontName); // ¦r«¬
+	void SetFontName(CString StartCell, CString EndCell, CString FontName); // å­—å‹
+	void SetFontName(UINT StartX, UINT StartY, UINT EndX, UINT EndY, CString FontName); // å­—å‹
 	
 
-	void SetFontBold(CString StartCell, CString EndCell, BOOL BOLD); // ²ÊÅé
-	void SetFontBold(UINT StartX, UINT StartY, UINT EndX, UINT EndY, BOOL BOLD); // ²ÊÅé
+	void SetFontBold(CString StartCell, CString EndCell, BOOL BOLD); // ç²—é«”
+	void SetFontBold(UINT StartX, UINT StartY, UINT EndX, UINT EndY, BOOL BOLD); // ç²—é«”
 
-	void SetFontStrikethrough(CString StartCell, CString EndCell, BOOL STRIKE); // §R°£½u
-	void SetFontStrikethrough(UINT StartX, UINT StartY, UINT EndX, UINT EndY, BOOL STRIKE); // §R°£½u
+	void SetFontStrikethrough(CString StartCell, CString EndCell, BOOL STRIKE); // åˆªé™¤ç·š
+	void SetFontStrikethrough(UINT StartX, UINT StartY, UINT EndX, UINT EndY, BOOL STRIKE); // åˆªé™¤ç·š
 
-	void SetFontSize(CString StartCell, CString EndCell, UINT FontSize); // ¦rÅé¤j¤p
-	void SetFontSize(UINT StartX, UINT StartY, UINT EndX, UINT EndY, UINT FontSize); // ¦rÅé¤j¤p
+	void SetFontSize(CString StartCell, CString EndCell, UINT FontSize); // å­—é«”å¤§å°
+	void SetFontSize(UINT StartX, UINT StartY, UINT EndX, UINT EndY, UINT FontSize); // å­—é«”å¤§å°
 
-	void SetFontColor(CString StartCell, CString EndCell, UINT ColorIndex); // ¦r«¬ÃC¦â	
+	void SetFontColor(CString StartCell, CString EndCell, UINT ColorIndex); // å­—å‹é¡è‰²	
 	void SetFontColor(UINT StartX, UINT StartY, UINT EndX, UINT EndY, UINT ColorIndex);
 
-	void SetBkColor(CString StartCell, CString EndCell, UINT ColorIndex); // ­I´º¦â
+	void SetBkColor(CString StartCell, CString EndCell, UINT ColorIndex); // èƒŒæ™¯è‰²
 	void SetBkColor(UINT StartX, UINT StartY, UINT EndX, UINT EndY, UINT ColorIndex);
 
 	void SetFontFormat(CString StartCell, CString EndCell, CString FontName, UINT HorizontalFormat, UINT VerticalFormat,
-		BOOL BOLD, BOOL STRIKE,UINT FontSize,UINT FontColorIndex,UINT BkColorIndex); // ³]¤j½d³ò®æ¦¡
+		BOOL BOLD, BOOL STRIKE,UINT FontSize,UINT FontColorIndex,UINT BkColorIndex); // è¨­å¤§ç¯„åœæ ¼å¼
 	void SetFontFormat(UINT StartX, UINT StartY, UINT EndX, UINT EndY, CString FontName, UINT HorizontalFormat,UINT VerticalFormat,
-		BOOL BOLD, BOOL STRIKE,UINT FontSize,UINT FontColorIndex,UINT BkColorIndex); // ³]¤j½d³ò®æ¦¡
+		BOOL BOLD, BOOL STRIKE,UINT FontSize,UINT FontColorIndex,UINT BkColorIndex); // è¨­å¤§ç¯„åœæ ¼å¼
 
 	void SetCellTextFormat(CString Cell, CString FontName,UINT HorizontalFormat, UINT VerticalFormat, 
-		BOOL BOLD, BOOL STRIKE,	UINT FontSize,UINT FontColorIndex,UINT BkColorIndex,CString Text); // ³]³æ¤@Cell¤å¦r¤Î®æ¦¡
+		BOOL BOLD, BOOL STRIKE,	UINT FontSize,UINT FontColorIndex,UINT BkColorIndex,CString Text); // è¨­å–®ä¸€Cellæ–‡å­—åŠæ ¼å¼
 	void SetCellTextFormat(UINT X, UINT Y, CString FontName, UINT HorizontalFormat, UINT VerticalFormat, 
-		BOOL BOLD, BOOL STRIKE,	UINT FontSize,UINT FontColorIndex,UINT BkColorIndex,CString Text); // ³]³æ¤@Cell¤å¦r¤Î®æ¦¡
+		BOOL BOLD, BOOL STRIKE,	UINT FontSize,UINT FontColorIndex,UINT BkColorIndex,CString Text); // è¨­å–®ä¸€Cellæ–‡å­—åŠæ ¼å¼
 	
 
-	void SetText(CString Cell, CString text); // ³] Cell ¤å¦r 
-	void SetText(UINT X, UINT Y, CString text); // ³] Cell ¤å¦r
+	void SetText(CString Cell, CString text); // è¨­ Cell æ–‡å­— 
+	void SetText(UINT X, UINT Y, CString text); // è¨­ Cell æ–‡å­—
 
 	CString ReadAsString(UINT X, UINT Y); // as string read
 	CString ReadAsInteger(UINT X, UINT Y, int &value);
@@ -156,13 +156,13 @@ public:
 	CString ReadAsTime(CString Cell, SYSTEMTIME& Time);
 	CString ReadAsDateTime(CString Cell, SYSTEMTIME& DateTime);
 
-	void Sort1(CString StartCell, CString EndCell, CString IndexCell, long DeCrement);; // Decrement:1 ­° 2 ª@
-	void Sort1(UINT StartX, UINT StartY, UINT EndX, UINT EndY, UINT Cell1, UINT Cell2, long DeCrement);; // Decrement:1 ­° 2 ª@
+	void Sort1(CString StartCell, CString EndCell, CString IndexCell, long DeCrement);; // Decrement:1 é™ 2 æ˜‡
+	void Sort1(UINT StartX, UINT StartY, UINT EndX, UINT EndY, UINT Cell1, UINT Cell2, long DeCrement);; // Decrement:1 é™ 2 æ˜‡
 
-	void Sort2(CString StartCell, CString EndCell, CString IndexCell1, long DeCrement1, CString IndexCell2, long DeCrement2); // Decrement:1 ­° 2 ª@
+	void Sort2(CString StartCell, CString EndCell, CString IndexCell1, long DeCrement1, CString IndexCell2, long DeCrement2); // Decrement:1 é™ 2 æ˜‡
 	void Sort2(UINT StartX, UINT StartY, UINT EndX, UINT EndY,
 		UINT IndexCell1X, UINT IndexCell1Y, long DeCrement1,
-		UINT IndexCell2X, UINT IndexCell2Y, long DeCrement2);// Decrement:1 ­° 2 ª@
+		UINT IndexCell2X, UINT IndexCell2Y, long DeCrement2);// Decrement:1 é™ 2 æ˜‡
 
 	void Sort3(CString StartCell, CString EndCell, CString IndexCell1, long DeCrement1,
 		CString IndexCell2, long DeCrement2, CString IndexCell3, long DeCrement3);
@@ -173,24 +173,24 @@ public:
 
 	void DrawChart(CString StartCell, CString EndCell, long ChartType, short PlotBy, 
 		short StartFrom, CString TitleString, CString X_String, CString Y_String,
-		UINT ChartStartX, UINT ChartStartY, UINT width, UINT height); // µeªí®æ
+		UINT ChartStartX, UINT ChartStartY, UINT width, UINT height); // ç•«è¡¨æ ¼
 	void DrawChart(UINT StartX, UINT StartY, UINT EndX, UINT EndY, long ChartType, short PlotBy, 
 		short StartFrom, CString TitleString, CString X_String, CString Y_String,
-		UINT ChartStartX, UINT ChartStartY, UINT width, UINT height); // µeªí®æ
+		UINT ChartStartX, UINT ChartStartY, UINT width, UINT height); // ç•«è¡¨æ ¼
 	void SaveChart(CString FullBmpPathName);
 
-	void SaveAs(CString FullPathName); // ¥t¦s·sÀÉ
-	void Save(); // Àx¦sÀÉ®×
-	void CloseExcel(CString FullPathName);	// Ãö³¬ Excel ÀÉ®×
-	void QuitApp(); // Ãö³¬ Excel À³¥Îµ{¦¡
-	void ReleaseApp(); // ÄÀ©ñ¸ê·½
+	void SaveAs(CString FullPathName); // å¦å­˜æ–°æª”
+	void Save(); // å„²å­˜æª”æ¡ˆ
+	void CloseExcel(CString FullPathName);	// é—œé–‰ Excel æª”æ¡ˆ
+	void QuitApp(); // é—œé–‰ Excel æ‡‰ç”¨ç¨‹å¼
+	void ReleaseApp(); // é‡‹æ”¾è³‡æº
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // private function
 
 //=====================================================================================
-// ±N¼Æ¦rÂà¬° Cell ¼Ò¦¡ ex: 314 -> LB
+// å°‡æ•¸å­—è½‰ç‚º Cell æ¨¡å¼ ex: 314 -> LB
 //=====================================================================================
 
 void CExcel::UINT2Cell(UINT StartX, UINT StartY, UINT EndX, UINT EndY, CString &StartCell, CString &EndCell)
@@ -223,7 +223,7 @@ void CExcel::UINT2Cell(UINT StartX, UINT StartY, UINT EndX, UINT EndY, CString &
 }
 
 //=====================================================================================
-// ¨ú±o range(by CString)
+// å–å¾— range(by CString)
 //=====================================================================================
 void CExcel::GetRange(CString StartCell, CString EndCell)
 {
@@ -232,7 +232,7 @@ void CExcel::GetRange(CString StartCell, CString EndCell)
 }
 
 //=====================================================================================
-// ¨ú±o range(by UINT), Start From 1
+// å–å¾— range(by UINT), Start From 1
 //=====================================================================================
 void CExcel::GetRange(UINT StartX, UINT StartY, UINT EndX, UINT EndY)
 {
@@ -267,7 +267,7 @@ void CExcel::GetRange(UINT StartX, UINT StartY, UINT EndX, UINT EndY)
 // about application and file
 
 //=====================================================================================
-// ªì©l¤Æ excel À³¥Îµ{¦¡, ¤@­Óµ{¦¡¥u¯à°õ¦æ¤@¦¸
+// åˆå§‹åŒ– excel æ‡‰ç”¨ç¨‹å¼, ä¸€å€‹ç¨‹å¼åªèƒ½åŸ·è¡Œä¸€æ¬¡
 //=====================================================================================
 
 BOOL CExcel::InitializeApp()
@@ -279,7 +279,7 @@ BOOL CExcel::InitializeApp()
 
 
 //=====================================================================================
-// ¶}±Ò¦s¦bÀÉ®×
+// é–‹å•Ÿå­˜åœ¨æª”æ¡ˆ
 //=====================================================================================
 
 BOOL CExcel::OpenExistFile(CString FullPathName, BOOL VISIBLE)
@@ -287,49 +287,49 @@ BOOL CExcel::OpenExistFile(CString FullPathName, BOOL VISIBLE)
 	FILE *fp1=fopen(FullPathName,"rb");
 	if(fp1==NULL) return FALSE;
 
-	objApp.SetVisible(VISIBLE);			// ¥iµø
-	objApp.SetUserControl(FALSE);		// ¥i±±
-	objApp.SetDisplayAlerts(FALSE);		// Åã¥Ü´£¥Ü
+	objApp.SetVisible(VISIBLE);			// å¯è¦–
+	objApp.SetUserControl(FALSE);		// å¯æ§
+	objApp.SetDisplayAlerts(FALSE);		// é¡¯ç¤ºæç¤º
 	objApp.SetEnableEvents(FALSE);
-	objApp.SetAskToUpdateLinks(FALSE); // ³sµ²§ó·s
-	objApp.SetEnableAnimations(FALSE); // °Êµe¨ú®ø
-	objApp.SetAlertBeforeOverwriting(FALSE); // ¤£¸ß°İÂĞ¼g	
+	objApp.SetAskToUpdateLinks(FALSE); // é€£çµæ›´æ–°
+	objApp.SetEnableAnimations(FALSE); // å‹•ç•«å–æ¶ˆ
+	objApp.SetAlertBeforeOverwriting(FALSE); // ä¸è©¢å•è¦†å¯«	
 
 
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** //
 	// get workbook
 
 	objBooks = objApp.GetWorkbooks();	
-	objBook.AttachDispatch(objBooks.Add(_variant_t(FullPathName))); //¶}±Ò¤@­Ó¤w¦s¦bªºÀÉ®×
+	objBook.AttachDispatch(objBooks.Add(_variant_t(FullPathName))); //é–‹å•Ÿä¸€å€‹å·²å­˜åœ¨çš„æª”æ¡ˆ
 	
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** //
 	// get worksheet
 
 	objSheets = objBook.GetWorksheets();
-	objSheet = objSheets.GetItem(COleVariant((short)1)); // ±q sheet 1 ¶}©l //
+	objSheet = objSheets.GetItem(COleVariant((short)1)); // å¾ sheet 1 é–‹å§‹ //
 
 	return TRUE;
 }
 
 //=====================================================================================
-// ¶}·sÀÉ®×
+// é–‹æ–°æª”æ¡ˆ
 //=====================================================================================
 
 void CExcel::OpenNewFile(BOOL VISIBLE)
 {
-	objApp.SetVisible(VISIBLE);			// ¥iµø
-	objApp.SetUserControl(FALSE);		// ¥i±±
-	objApp.SetDisplayAlerts(FALSE);		// Åã¥Ü´£¥Ü
+	objApp.SetVisible(VISIBLE);			// å¯è¦–
+	objApp.SetUserControl(FALSE);		// å¯æ§
+	objApp.SetDisplayAlerts(FALSE);		// é¡¯ç¤ºæç¤º
 	objApp.SetEnableEvents(FALSE);
-	objApp.SetAskToUpdateLinks(FALSE); // ³sµ²§ó·s
-	objApp.SetEnableAnimations(FALSE); // °Êµe¨ú®ø
-	objApp.SetAlertBeforeOverwriting(FALSE); // ¤£¸ß°İÂĞ¼g	
+	objApp.SetAskToUpdateLinks(FALSE); // é€£çµæ›´æ–°
+	objApp.SetEnableAnimations(FALSE); // å‹•ç•«å–æ¶ˆ
+	objApp.SetAlertBeforeOverwriting(FALSE); // ä¸è©¢å•è¦†å¯«	
 
 	objBooks = objApp.GetWorkbooks();
 	objBook = objBooks.Add(VOptional);
-	//objBook.AttachDispatch(objBooks.Add(_variant_t("C:\\test.xls"))); //¶}±Ò¤@­Ó¤w¦s¦bªºÀÉ®×
+	//objBook.AttachDispatch(objBooks.Add(_variant_t("C:\\test.xls"))); //é–‹å•Ÿä¸€å€‹å·²å­˜åœ¨çš„æª”æ¡ˆ
 	objSheets = objBook.GetWorksheets();	
-	objSheet = objSheets.GetItem(COleVariant((short)1)); //±qsheet1¶}©l
+	objSheet = objSheets.GetItem(COleVariant((short)1)); //å¾sheet1é–‹å§‹
 
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** //
 	// get workbook
@@ -341,11 +341,11 @@ void CExcel::OpenNewFile(BOOL VISIBLE)
 	// get worksheet
 
 	objSheets = objBook.GetWorksheets();
-	objSheet = objSheets.GetItem(COleVariant((short)1)); // ±q sheet 1 ¶}©l //
+	objSheet = objSheets.GetItem(COleVariant((short)1)); // å¾ sheet 1 é–‹å§‹ //
 }
 
 //=====================================================================================
-// ¥t¦s·sÀÉ
+// å¦å­˜æ–°æª”
 //=====================================================================================
 
 void CExcel::SaveAs(CString FullPathName)
@@ -356,7 +356,7 @@ void CExcel::SaveAs(CString FullPathName)
 }
 
 //=====================================================================================
-// Àx¦sÀÉ®×
+// å„²å­˜æª”æ¡ˆ
 //=====================================================================================
 
 void CExcel::Save()
@@ -365,7 +365,7 @@ void CExcel::Save()
 }
 
 //=====================================================================================
-// Ãö³¬ Excel
+// é—œé–‰ Excel
 //=====================================================================================
 
 void CExcel::CloseExcel(CString FullPathName)
@@ -374,7 +374,7 @@ void CExcel::CloseExcel(CString FullPathName)
 }
 
 //=====================================================================================
-// Ãö³¬ Excel À³¥Îµ{¦¡
+// é—œé–‰ Excel æ‡‰ç”¨ç¨‹å¼
 //=====================================================================================
 
 void CExcel::QuitApp()
@@ -384,7 +384,7 @@ void CExcel::QuitApp()
 }
 
 //=====================================================================================
-// ÄÀ©ñ©Ò¥Î¨ì¸ê·½
+// é‡‹æ”¾æ‰€ç”¨åˆ°è³‡æº
 //=====================================================================================
 
 void CExcel::ReleaseApp()
@@ -407,7 +407,7 @@ void CExcel::ReleaseApp()
 // about column and row
 
 //=====================================================================================
-// ¨ú±o°_©l¦C
+// å–å¾—èµ·å§‹åˆ—
 //=====================================================================================
 
 long CExcel::GetStartColumn()
@@ -418,7 +418,7 @@ long CExcel::GetStartColumn()
 }
 
 //=====================================================================================
-// ¨ú±o°_©l¦æ
+// å–å¾—èµ·å§‹è¡Œ
 //=====================================================================================
 
 long CExcel::GetStartRow()
@@ -429,7 +429,7 @@ long CExcel::GetStartRow()
 }
 
 //=====================================================================================
-// ¨ú±oÁ`¦C¼Æ
+// å–å¾—ç¸½åˆ—æ•¸
 //=====================================================================================
 
 long CExcel::GetTotalColumn()
@@ -441,7 +441,7 @@ long CExcel::GetTotalColumn()
 }
 
 //=====================================================================================
-// ¨ú±oÁ`¦æ¼Æ
+// å–å¾—ç¸½è¡Œæ•¸
 //=====================================================================================
 
 long CExcel::GetTotalRow()
@@ -456,7 +456,7 @@ long CExcel::GetTotalRow()
 // about sheet
 
 //=====================================================================================
-// ¨ú±o Sheet ­Ó¼Æ
+// å–å¾— Sheet å€‹æ•¸
 //=====================================================================================
 
 long CExcel::GetSheetNum()
@@ -465,7 +465,7 @@ long CExcel::GetSheetNum()
 }
 
 //=====================================================================================
-// ´¡¤J²Ä nIndex ­Ó Sheet
+// æ’å…¥ç¬¬ nIndex å€‹ Sheet
 //=====================================================================================
 
 BOOL CExcel::InsertSheet(long nIndex, CString SheetName)
@@ -484,7 +484,7 @@ BOOL CExcel::InsertSheet(long nIndex, CString SheetName)
 
 
 //=====================================================================================
-// §R°£ Sheet
+// åˆªé™¤ Sheet
 //=====================================================================================
 
 BOOL CExcel::DelSheetIndex(long nIndex)
@@ -496,7 +496,7 @@ BOOL CExcel::DelSheetIndex(long nIndex)
 }
 
 //=====================================================================================
-// ³]©w Sheet Name
+// è¨­å®š Sheet Name
 //=====================================================================================
 
 BOOL CExcel::SetSheetName(long nIndex, CString SheetName)
@@ -508,7 +508,7 @@ BOOL CExcel::SetSheetName(long nIndex, CString SheetName)
 }
 
 //=====================================================================================
-// ³]©w·í«e Sheet
+// è¨­å®šç•¶å‰ Sheet
 //=====================================================================================
 
 BOOL CExcel::SetActiveSheet(long nIndex)
@@ -520,7 +520,7 @@ BOOL CExcel::SetActiveSheet(long nIndex)
 }
 
 //=====================================================================================
-// ¨ú±o SheetName
+// å–å¾— SheetName
 //=====================================================================================
 
 BOOL CExcel::GetSheetName(long nIndex, CString &SheetName)
@@ -532,7 +532,7 @@ BOOL CExcel::GetSheetName(long nIndex, CString &SheetName)
 }
 
 //=====================================================================================
-// ¨ú±o©Ò¦³ SheetName
+// å–å¾—æ‰€æœ‰ SheetName
 //=====================================================================================
 void CExcel::GetSheetName(CString* SheetName)
 {		
@@ -551,7 +551,7 @@ void CExcel::GetSheetName(CString* SheetName)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //=====================================================================================
-// ²M°£½d³ò
+// æ¸…é™¤ç¯„åœ
 //=====================================================================================
 void CExcel::ClearRange(CString StartCell, CString EndCell)
 {
@@ -569,7 +569,7 @@ void CExcel::ClearRange(UINT StartX, UINT StartY, UINT EndX, UINT EndY)
 // about cell
 
 //=====================================================================================
-// ¦X¨ÖÀx¦s®æ
+// åˆä½µå„²å­˜æ ¼
 //=====================================================================================
 void CExcel::Merge(UINT StartX, UINT StartY, UINT EndX, UINT EndY)
 {
@@ -597,16 +597,16 @@ void CExcel::MergeAll(CString StartCell, CString EndCell)
 }
 
 //=====================================================================================
-// ««ª½¹ï»ô¤è¦¡
+// å‚ç›´å°é½Šæ–¹å¼
 //=====================================================================================
 
-void CExcel::SetVertical(CString StartCell,CString EndCell, UINT Alignment) // 1.¤W 2.¤¤ 3.¤U
+void CExcel::SetVertical(CString StartCell,CString EndCell, UINT Alignment) // 1.ä¸Š 2.ä¸­ 3.ä¸‹
 {
 	this->GetRange(StartCell, EndCell);
 	range.SetVerticalAlignment(_variant_t((short)Alignment));
 }
 
-void CExcel::SetVertical(UINT StartX, UINT StartY, UINT EndX, UINT EndY, UINT Alignment) // 1.¤W 2.¤¤ 3.¤U
+void CExcel::SetVertical(UINT StartX, UINT StartY, UINT EndX, UINT EndY, UINT Alignment) // 1.ä¸Š 2.ä¸­ 3.ä¸‹
 {
 	this->GetRange(StartX, StartY, EndX, EndY);
 	range.SetVerticalAlignment(_variant_t((short)Alignment));
@@ -649,7 +649,7 @@ void CExcel::SetVerticalDown(UINT StartX, UINT StartY, UINT EndX, UINT EndY)
 }
 
 //=====================================================================================
-// ¤ô¥­¹ï»ô¤è¦¡
+// æ°´å¹³å°é½Šæ–¹å¼
 //=====================================================================================
 
 void CExcel::SetHorizontal(CString StartCell,CString EndCell, UINT Alignment) // 2.Left 3.Center 4.Right 5.Repeat
@@ -701,7 +701,7 @@ void CExcel::SetHorizontalRight(UINT StartX, UINT StartY, UINT EndX, UINT EndY)
 }
 
 //=====================================================================================
-// µe®Ø½u
+// ç•«æ¡†ç·š
 //=====================================================================================
 
 void CExcel::Border(CString StartCell, CString EndCell, UINT LineStyle, UINT Weight,UINT ColorIndex)
@@ -717,7 +717,7 @@ void CExcel::Border(UINT StartX, UINT StartY, UINT EndX, UINT EndY, UINT LineSty
 }
 
 //=====================================================================================
-// ³]Äæ¼e
+// è¨­æ¬„å¯¬
 //=====================================================================================
 
 void CExcel::SetWidth(CString StartCell, CString EndCell, float width)
@@ -733,7 +733,7 @@ void CExcel::SetWidth(UINT Start, UINT End, float width)
 }
 
 //=====================================================================================
-// ³]¦C°ª
+// è¨­åˆ—é«˜
 //=====================================================================================
 
 void CExcel::SetHeight(CString StartCell, CString EndCell, float height)
@@ -749,7 +749,7 @@ void CExcel::SetHeight(UINT Start, UINT End, float height)
 }
 
 //=====================================================================================
-// ¦Û°Ê½Õ¾ãÄæ¼e
+// è‡ªå‹•èª¿æ•´æ¬„å¯¬
 //=====================================================================================
 
 void CExcel::AutoSetWidth(CString StartCell, CString EndCell)
@@ -767,7 +767,7 @@ void CExcel::AutoSetWidth(UINT Start, UINT End)
 }
 
 //=====================================================================================
-// ³]©w FontName(¦r«¬)
+// è¨­å®š FontName(å­—å‹)
 //=====================================================================================
 
 void CExcel::SetFontName(CString StartCell, CString EndCell, CString FontName)
@@ -785,7 +785,7 @@ void CExcel::SetFontName(UINT StartX, UINT StartY, UINT EndX, UINT EndY, CString
 }
 
 //=====================================================================================
-// ³]©w FontBold(²ÊÅé)
+// è¨­å®š FontBold(ç²—é«”)
 //=====================================================================================
 void CExcel::SetFontBold(CString StartCell, CString EndCell, BOOL BOLD)
 {
@@ -802,7 +802,7 @@ void CExcel::SetFontBold(UINT StartX, UINT StartY, UINT EndX, UINT EndY, BOOL BO
 }
 
 //=====================================================================================
-// ³]©w FontStrikethorugh(§R°£½u)
+// è¨­å®š FontStrikethorugh(åˆªé™¤ç·š)
 //=====================================================================================
 void CExcel::SetFontStrikethrough(CString StartCell, CString EndCell, BOOL STRIKE)
 {
@@ -819,7 +819,7 @@ void CExcel::SetFontStrikethrough(UINT StartX, UINT StartY, UINT EndX, UINT EndY
 }
 
 //=====================================================================================
-// ³]©w FontSize(¦r«¬¤j¤p)
+// è¨­å®š FontSize(å­—å‹å¤§å°)
 //=====================================================================================
 void CExcel::SetFontSize(CString StartCell, CString EndCell, UINT FontSize)
 {
@@ -836,7 +836,7 @@ void CExcel::SetFontSize(UINT StartX, UINT StartY, UINT EndX, UINT EndY, UINT Fo
 }
 
 //=====================================================================================
-// ³]©w FontColor(¦r«¬ÃC¦â¡^
+// è¨­å®š FontColor(å­—å‹é¡è‰²ï¼‰
 //=====================================================================================
 void CExcel::SetFontColor(CString StartCell, CString EndCell, UINT ColorIndex)
 {	
@@ -853,7 +853,7 @@ void CExcel::SetFontColor(UINT StartX, UINT StartY, UINT EndX, UINT EndY, UINT C
 }
 
 //=====================================================================================
-// ³]©w FontBkColor(­I´º¦â)
+// è¨­å®š FontBkColor(èƒŒæ™¯è‰²)
 //=====================================================================================
 void CExcel::SetBkColor(CString StartCell, CString EndCell, UINT ColorIndex)
 {
@@ -869,7 +869,7 @@ void CExcel::SetBkColor(UINT StartX, UINT StartY, UINT EndX, UINT EndY, UINT Col
 	cell.SetColorIndex(_variant_t((short)ColorIndex));	
 }
 //=====================================================================================
-// ³]©w¤å¦r®æ¦¡
+// è¨­å®šæ–‡å­—æ ¼å¼
 //=====================================================================================
 
 void CExcel::SetFontFormat(CString StartCell, CString EndCell, CString FontName, UINT HorizontalFormat, UINT VerticalFormat,
@@ -909,7 +909,7 @@ void CExcel::SetFontFormat(UINT StartX, UINT StartY, UINT EndX, UINT EndY, CStri
 }
 
 //=====================================================================================
-// ³]©w¤å¦r
+// è¨­å®šæ–‡å­—
 //=====================================================================================
 void CExcel::SetText(CString Cell, CString Text)
 {
@@ -924,7 +924,7 @@ void CExcel::SetText(UINT X, UINT Y, CString Text)
 }
 
 //=====================================================================================
-// ³]©w¤å¦r¤Î®æ¦¡
+// è¨­å®šæ–‡å­—åŠæ ¼å¼
 //=====================================================================================
 
 
@@ -967,7 +967,7 @@ void CExcel::SetCellTextFormat(UINT X, UINT Y,CString FontName,UINT HorizontalFo
 	range.SetItem(_variant_t((long)1),_variant_t((long)1),_variant_t(Text));
 }
 //=====================================================================================
-// Åª¨ú¤å¦r
+// è®€å–æ–‡å­—
 //=====================================================================================
 
 CString CExcel::ReadAsString(UINT X, UINT Y)
@@ -1123,12 +1123,12 @@ CString CExcel::ReadAsTime(CString Cell, SYSTEMTIME &Time)
 
 */
 //=====================================================================================
-// µe¹Ï
+// ç•«åœ–
 //=====================================================================================
 
 void CExcel::DrawChart(CString StartCell, CString EndCell, long ChartType, short PlotBy, 
 		short StartFrom, CString TitleString, CString X_String, CString Y_String,
-		UINT ChartStartX, UINT ChartStartY, UINT width, UINT height) // µeªí®æ
+		UINT ChartStartX, UINT ChartStartY, UINT width, UINT height) // ç•«è¡¨æ ¼
 {	
 	lpDisp = objSheet.ChartObjects(VOptional);
 	chartobjects.AttachDispatch(lpDisp);
@@ -1157,7 +1157,7 @@ void CExcel::DrawChart(CString StartCell, CString EndCell, long ChartType, short
 
 void CExcel::DrawChart(UINT StartX, UINT StartY, UINT EndX, UINT EndY, long ChartType, short PlotBy, 
 		short StartFrom, CString TitleString, CString X_String, CString Y_String,
-		UINT ChartStartX, UINT ChartStartY, UINT width, UINT height) // µeªí®æ
+		UINT ChartStartX, UINT ChartStartY, UINT width, UINT height) // ç•«è¡¨æ ¼
 {	
 	CString StartCell;
 	CString EndCell;
@@ -1187,7 +1187,7 @@ void CExcel::DrawChart(UINT StartX, UINT StartY, UINT EndX, UINT EndY, long Char
 }
 
 //=====================================================================================
-// ¦s¹Ï
+// å­˜åœ–
 //=====================================================================================
 
 void CExcel::SaveChart(CString FullBmpPathName)
@@ -1196,7 +1196,7 @@ void CExcel::SaveChart(CString FullBmpPathName)
 }
 
 //=====================================================================================
-// ±Æ§Ç 1
+// æ’åº 1
 //=====================================================================================
 
 void CExcel::Sort1(CString StartCell, CString EndCell, CString IndexCell,long DeCrement)
@@ -1208,20 +1208,20 @@ void CExcel::Sort1(CString StartCell, CString EndCell, CString IndexCell,long De
 	
 	range.Sort(
 		key1, //  key1
-		DeCrement, // long Order1, [ 1(ª@§Ç) or 2(­°§Ç) ]
+		DeCrement, // long Order1, [ 1(æ˜‡åº) or 2(é™åº) ]
 		VOptional, // key2, 
 		VOptional, // type, [xlSortLabels, xlSortValues]
-		1, // long Order2, [ 1(ª@§Ç) or 2(­°§Ç) ]
+		1, // long Order2, [ 1(æ˜‡åº) or 2(é™åº) ]
 		VOptional, // key3
-		1, // long Order3, [ 1(ª@§Ç) or 2(­°§Ç) ]
-		0, // Header, [0,1 : ¤£§t title 2 : title ¤@°_±Æ
-		VOptional, // OrderCustom [±q1¶}©l¡A¦Û©w¸q±Æ§Ç¶¶§Ç¦Cªí¤¤¤§¯Á¤Ş¸¹¡A¬Ù²¤¨Ï¥Î±`³W]
-		_variant_t((short)TRUE), // MatchCase [TRUE¤À¤j¤p¼g±Æ]
-		1, // Orientation : [±Æ§Ç¤è¦V, 1:«ö¦C, 2:«ö¦æ)
-		1, // SortMethod : [1:«ö¦r²Åº~»y«÷­µ¶¶§Ç, 2:«ö¦r²Åµ§µe¼Æ]
-		1, // DataOption1 ¥i¿ï 0 »P 1
-		1, // DataOption2 ¥i¿ï 0 »P 1
-		1  // DataOption3 ¥i¿ï 0 »P 1
+		1, // long Order3, [ 1(æ˜‡åº) or 2(é™åº) ]
+		0, // Header, [0,1 : ä¸å« title 2 : title ä¸€èµ·æ’
+		VOptional, // OrderCustom [å¾1é–‹å§‹ï¼Œè‡ªå®šç¾©æ’åºé †åºåˆ—è¡¨ä¸­ä¹‹ç´¢å¼•è™Ÿï¼Œçœç•¥ä½¿ç”¨å¸¸è¦]
+		_variant_t((short)TRUE), // MatchCase [TRUEåˆ†å¤§å°å¯«æ’]
+		1, // Orientation : [æ’åºæ–¹å‘, 1:æŒ‰åˆ—, 2:æŒ‰è¡Œ)
+		1, // SortMethod : [1:æŒ‰å­—ç¬¦æ¼¢èªæ‹¼éŸ³é †åº, 2:æŒ‰å­—ç¬¦ç­†ç•«æ•¸]
+		1, // DataOption1 å¯é¸ 0 èˆ‡ 1
+		1, // DataOption2 å¯é¸ 0 èˆ‡ 1
+		1  // DataOption3 å¯é¸ 0 èˆ‡ 1
 		);
 }
 
@@ -1237,25 +1237,25 @@ void CExcel::Sort1(UINT StartX, UINT StartY, UINT EndX, UINT EndY, UINT Cell1, U
 	
 	range.Sort(
 		key1, //  key1
-		DeCrement, // long Order1, [ 1(ª@§Ç) or 2(­°§Ç) ]
+		DeCrement, // long Order1, [ 1(æ˜‡åº) or 2(é™åº) ]
 		VOptional, // key2, 
 		VOptional, // type, [xlSortLabels, xlSortValues]
-		1, // long Order2, [ 1(ª@§Ç) or 2(­°§Ç) ]
+		1, // long Order2, [ 1(æ˜‡åº) or 2(é™åº) ]
 		VOptional, // key3              
-		1, // long Order3, [ 1(ª@§Ç) or 2(­°§Ç) ]
-		0, // Header, [0,1 : ¤£§t title 2 : title ¤@°_±Æ
-		VOptional, // OrderCustom [±q1¶}©l¡A¦Û©w¸q±Æ§Ç¶¶§Ç¦Cªí¤¤¤§¯Á¤Ş¸¹¡A¬Ù²¤¨Ï¥Î±`³W]
-		_variant_t((short)TRUE), // MatchCase [TRUE¤À¤j¤p¼g±Æ]
-		1, // Orientation : [±Æ§Ç¤è¦V, 1:«ö¦C, 2:«ö¦æ)
-		1, // SortMethod : [1:«ö¦r²Åº~»y«÷­µ¶¶§Ç, 2:«ö¦r²Åµ§µe¼Æ]
-		1, // DataOption1 ¥i¿ï 0 »P 1
-		1, // DataOption2 ¥i¿ï 0 »P 1
-		1  // DataOption3 ¥i¿ï 0 »P 1
+		1, // long Order3, [ 1(æ˜‡åº) or 2(é™åº) ]
+		0, // Header, [0,1 : ä¸å« title 2 : title ä¸€èµ·æ’
+		VOptional, // OrderCustom [å¾1é–‹å§‹ï¼Œè‡ªå®šç¾©æ’åºé †åºåˆ—è¡¨ä¸­ä¹‹ç´¢å¼•è™Ÿï¼Œçœç•¥ä½¿ç”¨å¸¸è¦]
+		_variant_t((short)TRUE), // MatchCase [TRUEåˆ†å¤§å°å¯«æ’]
+		1, // Orientation : [æ’åºæ–¹å‘, 1:æŒ‰åˆ—, 2:æŒ‰è¡Œ)
+		1, // SortMethod : [1:æŒ‰å­—ç¬¦æ¼¢èªæ‹¼éŸ³é †åº, 2:æŒ‰å­—ç¬¦ç­†ç•«æ•¸]
+		1, // DataOption1 å¯é¸ 0 èˆ‡ 1
+		1, // DataOption2 å¯é¸ 0 èˆ‡ 1
+		1  // DataOption3 å¯é¸ 0 èˆ‡ 1
 		);
 }
 
 //=====================================================================================
-// ±Æ§Ç 2
+// æ’åº 2
 //=====================================================================================
 
 void CExcel::Sort2(CString StartCell, CString EndCell, CString IndexCell1, long DeCrement1, CString IndexCell2, long DeCrement2)
@@ -1270,20 +1270,20 @@ void CExcel::Sort2(CString StartCell, CString EndCell, CString IndexCell1, long 
 	
 	range.Sort(
 		key1, //  key1
-		DeCrement1, // long Order1, [ 1(ª@§Ç) or 2(­°§Ç) ]
+		DeCrement1, // long Order1, [ 1(æ˜‡åº) or 2(é™åº) ]
 		key2, // key2, 
 		VOptional, // type, [xlSortLabels, xlSortValues]
-		DeCrement2, // long Order2, [ 1(ª@§Ç) or 2(­°§Ç) ]
+		DeCrement2, // long Order2, [ 1(æ˜‡åº) or 2(é™åº) ]
 		VOptional, // key3
-		1, // long Order3, [ 1(ª@§Ç) or 2(­°§Ç) ]
-		0, // Header, [0,1 : ¤£§t title 2 : title ¤@°_±Æ
-		VOptional, // OrderCustom [±q1¶}©l¡A¦Û©w¸q±Æ§Ç¶¶§Ç¦Cªí¤¤¤§¯Á¤Ş¸¹¡A¬Ù²¤¨Ï¥Î±`³W]
-		_variant_t((short)TRUE), // MatchCase [TRUE¤À¤j¤p¼g±Æ]
-		1, // Orientation : [±Æ§Ç¤è¦V, 1:«ö¦C, 2:«ö¦æ)
-		1, // SortMethod : [1:«ö¦r²Åº~»y«÷­µ¶¶§Ç, 2:«ö¦r²Åµ§µe¼Æ]
-		1, // DataOption1 ¥i¿ï 0 »P 1
-		1, // DataOption2 ¥i¿ï 0 »P 1
-		1  // DataOption3 ¥i¿ï 0 »P 1
+		1, // long Order3, [ 1(æ˜‡åº) or 2(é™åº) ]
+		0, // Header, [0,1 : ä¸å« title 2 : title ä¸€èµ·æ’
+		VOptional, // OrderCustom [å¾1é–‹å§‹ï¼Œè‡ªå®šç¾©æ’åºé †åºåˆ—è¡¨ä¸­ä¹‹ç´¢å¼•è™Ÿï¼Œçœç•¥ä½¿ç”¨å¸¸è¦]
+		_variant_t((short)TRUE), // MatchCase [TRUEåˆ†å¤§å°å¯«æ’]
+		1, // Orientation : [æ’åºæ–¹å‘, 1:æŒ‰åˆ—, 2:æŒ‰è¡Œ)
+		1, // SortMethod : [1:æŒ‰å­—ç¬¦æ¼¢èªæ‹¼éŸ³é †åº, 2:æŒ‰å­—ç¬¦ç­†ç•«æ•¸]
+		1, // DataOption1 å¯é¸ 0 èˆ‡ 1
+		1, // DataOption2 å¯é¸ 0 èˆ‡ 1
+		1  // DataOption3 å¯é¸ 0 èˆ‡ 1
 		);
 }
 
@@ -1306,25 +1306,25 @@ void CExcel::Sort2(UINT StartX, UINT StartY, UINT EndX, UINT EndY,
 	
 	range.Sort(
 		key1, //  key1
-		DeCrement1, // long Order1, [ 1(ª@§Ç) or 2(­°§Ç) ]
+		DeCrement1, // long Order1, [ 1(æ˜‡åº) or 2(é™åº) ]
 		key2, // key2, 
 		VOptional, // type, [xlSortLabels, xlSortValues]
-		DeCrement2, // long Order2, [ 1(ª@§Ç) or 2(­°§Ç) ]
+		DeCrement2, // long Order2, [ 1(æ˜‡åº) or 2(é™åº) ]
 		VOptional, // key3              
-		1, // long Order3, [ 1(ª@§Ç) or 2(­°§Ç) ]
-		0, // Header, [0,1 : ¤£§t title 2 : title ¤@°_±Æ
-		VOptional, // OrderCustom [±q1¶}©l¡A¦Û©w¸q±Æ§Ç¶¶§Ç¦Cªí¤¤¤§¯Á¤Ş¸¹¡A¬Ù²¤¨Ï¥Î±`³W]
-		_variant_t((short)TRUE), // MatchCase [TRUE¤À¤j¤p¼g±Æ]
-		1, // Orientation : [±Æ§Ç¤è¦V, 1:«ö¦C, 2:«ö¦æ)
-		1, // SortMethod : [1:«ö¦r²Åº~»y«÷­µ¶¶§Ç, 2:«ö¦r²Åµ§µe¼Æ]
-		1, // DataOption1 ¥i¿ï 0 »P 1
-		1, // DataOption2 ¥i¿ï 0 »P 1
-		1  // DataOption3 ¥i¿ï 0 »P 1
+		1, // long Order3, [ 1(æ˜‡åº) or 2(é™åº) ]
+		0, // Header, [0,1 : ä¸å« title 2 : title ä¸€èµ·æ’
+		VOptional, // OrderCustom [å¾1é–‹å§‹ï¼Œè‡ªå®šç¾©æ’åºé †åºåˆ—è¡¨ä¸­ä¹‹ç´¢å¼•è™Ÿï¼Œçœç•¥ä½¿ç”¨å¸¸è¦]
+		_variant_t((short)TRUE), // MatchCase [TRUEåˆ†å¤§å°å¯«æ’]
+		1, // Orientation : [æ’åºæ–¹å‘, 1:æŒ‰åˆ—, 2:æŒ‰è¡Œ)
+		1, // SortMethod : [1:æŒ‰å­—ç¬¦æ¼¢èªæ‹¼éŸ³é †åº, 2:æŒ‰å­—ç¬¦ç­†ç•«æ•¸]
+		1, // DataOption1 å¯é¸ 0 èˆ‡ 1
+		1, // DataOption2 å¯é¸ 0 èˆ‡ 1
+		1  // DataOption3 å¯é¸ 0 èˆ‡ 1
 		);
 }
 
 //=====================================================================================
-// ±Æ§Ç 3
+// æ’åº 3
 //=====================================================================================
 
 
@@ -1344,20 +1344,20 @@ void CExcel::Sort3(CString StartCell, CString EndCell, CString IndexCell1, long 
 	
 	range.Sort(
 		key1, //  key1
-		DeCrement1, // long Order1, [ 1(ª@§Ç) or 2(­°§Ç) ]
+		DeCrement1, // long Order1, [ 1(æ˜‡åº) or 2(é™åº) ]
 		key2, // key2, 
 		VOptional, // type, [xlSortLabels, xlSortValues]
-		DeCrement2, // long Order2, [ 1(ª@§Ç) or 2(­°§Ç) ]
+		DeCrement2, // long Order2, [ 1(æ˜‡åº) or 2(é™åº) ]
 		key3, // key3
-		DeCrement3, // long Order3, [ 1(ª@§Ç) or 2(­°§Ç) ]
-		0, // Header, [0,1 : ¤£§t title 2 : title ¤@°_±Æ
-		VOptional, // OrderCustom [±q1¶}©l¡A¦Û©w¸q±Æ§Ç¶¶§Ç¦Cªí¤¤¤§¯Á¤Ş¸¹¡A¬Ù²¤¨Ï¥Î±`³W]
-		_variant_t((short)TRUE), // MatchCase [TRUE¤À¤j¤p¼g±Æ]
-		1, // Orientation : [±Æ§Ç¤è¦V, 1:«ö¦C, 2:«ö¦æ)
-		1, // SortMethod : [1:«ö¦r²Åº~»y«÷­µ¶¶§Ç, 2:«ö¦r²Åµ§µe¼Æ]
-		1, // DataOption1 ¥i¿ï 0 »P 1
-		1, // DataOption2 ¥i¿ï 0 »P 1
-		1  // DataOption3 ¥i¿ï 0 »P 1
+		DeCrement3, // long Order3, [ 1(æ˜‡åº) or 2(é™åº) ]
+		0, // Header, [0,1 : ä¸å« title 2 : title ä¸€èµ·æ’
+		VOptional, // OrderCustom [å¾1é–‹å§‹ï¼Œè‡ªå®šç¾©æ’åºé †åºåˆ—è¡¨ä¸­ä¹‹ç´¢å¼•è™Ÿï¼Œçœç•¥ä½¿ç”¨å¸¸è¦]
+		_variant_t((short)TRUE), // MatchCase [TRUEåˆ†å¤§å°å¯«æ’]
+		1, // Orientation : [æ’åºæ–¹å‘, 1:æŒ‰åˆ—, 2:æŒ‰è¡Œ)
+		1, // SortMethod : [1:æŒ‰å­—ç¬¦æ¼¢èªæ‹¼éŸ³é †åº, 2:æŒ‰å­—ç¬¦ç­†ç•«æ•¸]
+		1, // DataOption1 å¯é¸ 0 èˆ‡ 1
+		1, // DataOption2 å¯é¸ 0 èˆ‡ 1
+		1  // DataOption3 å¯é¸ 0 èˆ‡ 1
 		);
 }
 
@@ -1385,19 +1385,19 @@ void CExcel::Sort3(UINT StartX, UINT StartY, UINT EndX, UINT EndY,
 	
 	range.Sort(
 		key1, //  key1
-		DeCrement1, // long Order1, [ 1(ª@§Ç) or 2(­°§Ç) ]
+		DeCrement1, // long Order1, [ 1(æ˜‡åº) or 2(é™åº) ]
 		key2, // key2, 
 		VOptional, // type, [xlSortLabels, xlSortValues]
-		DeCrement2, // long Order2, [ 1(ª@§Ç) or 2(­°§Ç) ]
+		DeCrement2, // long Order2, [ 1(æ˜‡åº) or 2(é™åº) ]
 		key3, // key3              
-		DeCrement3, // long Order3, [ 1(ª@§Ç) or 2(­°§Ç) ]
-		0, // Header, [0,1 : ¤£§t title 2 : title ¤@°_±Æ
-		VOptional, // OrderCustom [±q1¶}©l¡A¦Û©w¸q±Æ§Ç¶¶§Ç¦Cªí¤¤¤§¯Á¤Ş¸¹¡A¬Ù²¤¨Ï¥Î±`³W]
-		_variant_t((short)TRUE), // MatchCase [TRUE¤À¤j¤p¼g±Æ]
-		1, // Orientation : [±Æ§Ç¤è¦V, 1:«ö¦C, 2:«ö¦æ)
-		1, // SortMethod : [1:«ö¦r²Åº~»y«÷­µ¶¶§Ç, 2:«ö¦r²Åµ§µe¼Æ]
-		1, // DataOption1 ¥i¿ï 0 »P 1
-		1, // DataOption2 ¥i¿ï 0 »P 1
-		1  // DataOption3 ¥i¿ï 0 »P 1
+		DeCrement3, // long Order3, [ 1(æ˜‡åº) or 2(é™åº) ]
+		0, // Header, [0,1 : ä¸å« title 2 : title ä¸€èµ·æ’
+		VOptional, // OrderCustom [å¾1é–‹å§‹ï¼Œè‡ªå®šç¾©æ’åºé †åºåˆ—è¡¨ä¸­ä¹‹ç´¢å¼•è™Ÿï¼Œçœç•¥ä½¿ç”¨å¸¸è¦]
+		_variant_t((short)TRUE), // MatchCase [TRUEåˆ†å¤§å°å¯«æ’]
+		1, // Orientation : [æ’åºæ–¹å‘, 1:æŒ‰åˆ—, 2:æŒ‰è¡Œ)
+		1, // SortMethod : [1:æŒ‰å­—ç¬¦æ¼¢èªæ‹¼éŸ³é †åº, 2:æŒ‰å­—ç¬¦ç­†ç•«æ•¸]
+		1, // DataOption1 å¯é¸ 0 èˆ‡ 1
+		1, // DataOption2 å¯é¸ 0 èˆ‡ 1
+		1  // DataOption3 å¯é¸ 0 èˆ‡ 1
 		);	
 }
