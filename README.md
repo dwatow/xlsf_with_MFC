@@ -2,11 +2,11 @@
 A Class of xls funtion file with C++(MFC)
 
 # 聲明
-我是學MFC沒多久的人，一直很想找人討論聊MFC的使用心得。
+這是一份學MFC沒多久，而寫出來的程式碼。
 
 最大目的希望可以讓目前使用MFC的人，可以更愉快一點！^^"
 
-希望這個Class可以拋磚引玉，引起大家對於MFC使用心得的話題。
+希望這個Class可以拋磚引玉，引起大家對於MFC使用心得的話題，討論聊MFC的使用心得。
 
 # 作用
 從MFC加入Excel的type library的function太多太亂太難用
