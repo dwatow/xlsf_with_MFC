@@ -37,39 +37,39 @@ enum Boarder_Weight//（粗細）
 enum Horizontal_Alignment
 {
     HA_GENERAL = 1,
-		HA_LEFT,                //edisonx
-		HA_CENTER,
-		HA_RIGHT,                //edisonx
-		HA_FILL,                //重複至填滿    //edisonx
-		HA_JUSTIFYPARA,            //段落重排（有留白邊，有自動斷行）
-		HA_CENTERACROSS,        //跨欄置中（不合拼儲存格）
-		HA_JUSTIFY,                //分散對齊（縮排）
+    HA_LEFT,                //edisonx
+    HA_CENTER,
+    HA_RIGHT,                //edisonx
+    HA_FILL,                //重複至填滿    //edisonx
+    HA_JUSTIFYPARA,            //段落重排（有留白邊，有自動斷行）
+    HA_CENTERACROSS,        //跨欄置中（不合拼儲存格）
+    HA_JUSTIFY,                //分散對齊（縮排）
 };
 
 enum Vertical_Alignment
 {
     VA_TOP = 1,        //edisonx
-        VA_CENTER,            //edisonx
-        VA_BOTTOM,            //edisonx
-        VA_JUSTIFYPARA,    //段落重排（有留白邊，有自動斷行）
-        VA_JUSTIFY        //分散對齊
+    VA_CENTER,            //edisonx
+    VA_BOTTOM,            //edisonx
+    VA_JUSTIFYPARA,    //段落重排（有留白邊，有自動斷行）
+    VA_JUSTIFY        //分散對齊
 };
 
 enum Histogram_Chart_Type
 {
     CT_AREA = 0,     //區域
-        CT_COLUMN,         //方柱
-        CT_CONE,        //圓錐
-        CT_CYLINDER,    //圓柱
-        CT_PYRAMID        //金字塔
+    CT_COLUMN,         //方柱
+    CT_CONE,        //圓錐
+    CT_CYLINDER,    //圓柱
+    CT_PYRAMID        //金字塔
 };
 
 enum Stock_Type
 {
     ST_HLC = 0,    //最高-最低-收盤
-        ST_OHLC,    //開盤-最高-最低-收盤
-        ST_VHLC,    //成交量-最高-最低-收盤
-        ST_VOHLC    //成交量-開盤-最高-最低-收盤
+    ST_OHLC,    //開盤-最高-最低-收盤
+    ST_VHLC,    //成交量-最高-最低-收盤
+    ST_VOHLC    //成交量-開盤-最高-最低-收盤
 };
 ///////////////////////////////////
 //Boarder
@@ -255,19 +255,19 @@ public:
     //--------------------------------------------
     //皆由edisonx提供函數資料
 
-	//儲存圖表圖片.bmp（.jpg亦可以）
+    //儲存圖表圖片.bmp（.jpg亦可以）
     void SaveChart(CString FullBmpPathName);
     //圖表（三類型的函數在每次建立都要使用）
-	//使用前必須選擇貼上Chart的儲存格範圍
+    //使用前必須選擇貼上Chart的儲存格範圍
     
-	//選擇資料範圍
-	xlsFile& SelectChartRange(const char* , const char* );    
+    //選擇資料範圍
+    xlsFile& SelectChartRange(const char* , const char* );    
     xlsFile& SelectChartRange(const char* , int ,const char* , int );
     xlsFile& SelectChartRange(char,int,char,int);    
     xlsFile& SelectChartRange(char,char,int,char,char,int);
-	//設定Chart參數
+    //設定Chart參數
     xlsFile& SetChart(short XaxisByToporLeft = 2, bool isLabelVisable = 1, 
-		CString = "" , CString = "" , CString = "" );
+        CString = "" , CString = "" , CString = "" );
     //區域、直方、方柱、圓柱、圓錐、金字塔
     void InsertHistogramChart(int shapeType = CT_COLUMN, bool is3D = 0, 
                           int isVrticlorHorztlorOther = 0, 
