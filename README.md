@@ -48,68 +48,64 @@ A Class of xls funtion file with C++(MFC)
 # Sample Code
 用起來的code會像這樣
 ~~~
+#include "xlsFile.h"
+
 xlsFile CrossTalkFrom;
 
-CrossTalkFrom.New();
-CrossTalkFrom.SetSheetName(1, "CrossTalk值");
+CrossTalkFrom.New();  //開新檔案
+CrossTalkFrom.SetSheetName(1, "CrossTalk值");  //新增sheet, 排在第1位(1起始), 命名為 CrossTalk值
 
 //////////////////////////////////////////////////////////////////////////
 //填值
+//SelectCell: 選擇儲存格, 填入座標
+//SetCell: 填入值
 
 CrossTalkFrom.SelectCell("B1").SetCell("Lv");
 CrossTalkFrom.SelectCell("F1").SetCell("x");
 CrossTalkFrom.SelectCell("J1").SetCell("y");
-
-//三個方塊的Lv
 CrossTalkFrom.SelectCell("C2").SetCell(vChain1[0].GetStrLv());
 CrossTalkFrom.SelectCell("B3").SetCell(vChain1[1].GetStrLv());
 CrossTalkFrom.SelectCell("D3").SetCell(vChain1[2].GetStrLv());
 CrossTalkFrom.SelectCell("C4").SetCell(vChain1[3].GetStrLv());
-
 CrossTalkFrom.SelectCell("C6").SetCell(vChain1[4].GetStrLv());
 CrossTalkFrom.SelectCell("B7").SetCell(vChain1[5].GetStrLv());
 CrossTalkFrom.SelectCell("D7").SetCell(vChain1[6].GetStrLv());
 CrossTalkFrom.SelectCell("C8").SetCell(vChain1[7].GetStrLv());
-
 CrossTalkFrom.SelectCell("C10").SetCell(vChain1[8].GetStrLv());
 CrossTalkFrom.SelectCell("B11").SetCell(vChain1[9].GetStrLv());
 CrossTalkFrom.SelectCell("D11").SetCell(vChain1[10].GetStrLv());
 CrossTalkFrom.SelectCell("C12").SetCell(vChain1[11].GetStrLv());
-
-//三個方塊的x
 CrossTalkFrom.SelectCell("G2").SetCell(vChain1[0].GetStrSx());
 CrossTalkFrom.SelectCell("F3").SetCell(vChain1[1].GetStrSx());
 CrossTalkFrom.SelectCell("H3").SetCell(vChain1[2].GetStrSx());
 CrossTalkFrom.SelectCell("G4").SetCell(vChain1[3].GetStrSx());
-
 CrossTalkFrom.SelectCell("G6").SetCell(vChain1[4].GetStrSx());
 CrossTalkFrom.SelectCell("F7").SetCell(vChain1[5].GetStrSx());
 CrossTalkFrom.SelectCell("H7").SetCell(vChain1[6].GetStrSx());
 CrossTalkFrom.SelectCell("G8").SetCell(vChain1[7].GetStrSx());
-
 CrossTalkFrom.SelectCell("G10").SetCell(vChain1[8].GetStrSx());
 CrossTalkFrom.SelectCell("F11").SetCell(vChain1[9].GetStrSx());
 CrossTalkFrom.SelectCell("H11").SetCell(vChain1[10].GetStrSx());
 CrossTalkFrom.SelectCell("G12").SetCell(vChain1[11].GetStrSx());
-
-//三個方塊的y
 CrossTalkFrom.SelectCell("K2").SetCell(vChain1[0].GetStrSy());
 CrossTalkFrom.SelectCell("J3").SetCell(vChain1[1].GetStrSy());
 CrossTalkFrom.SelectCell("L3").SetCell(vChain1[2].GetStrSy());
 CrossTalkFrom.SelectCell("K4").SetCell(vChain1[3].GetStrSy());
-
 CrossTalkFrom.SelectCell("K6").SetCell(vChain1[4].GetStrSy());
 CrossTalkFrom.SelectCell("J7").SetCell(vChain1[5].GetStrSy());
 CrossTalkFrom.SelectCell("L7").SetCell(vChain1[6].GetStrSy());
 CrossTalkFrom.SelectCell("K8").SetCell(vChain1[7].GetStrSy());
-
 CrossTalkFrom.SelectCell("K10").SetCell(vChain1[8].GetStrSy());
 CrossTalkFrom.SelectCell("J11").SetCell(vChain1[9].GetStrSy());
 CrossTalkFrom.SelectCell("L11").SetCell(vChain1[10].GetStrSy());
-CrossTalkFrom.SelectCell("K12").SetCell(vChain1[11].GetStrSy());    //CrossTalkFrom.;
+CrossTalkFrom.SelectCell("K12").SetCell(vChain1[11].GetStrSy());
 
 //////////////////////////////////////////////////////////////////////////
 //畫背景和框線
+//SelectCell: 選取儲存格範圍, 英文和數字可以分開填入，並且參數化
+//SetCellColor: 設定底色
+//SetCellBorder: 設定框(填預設值)
+
 char cCell = 'B';
 int iCell = 2;
 CrossTalkFrom.SelectCell(cCell, iCell   , cCell + 2, iCell + 2).SetCellColor(15).SetCellBorder();
